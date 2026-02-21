@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>川渝之旅 2026 - 成都重庆九寨沟10日游</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .header .subtitle {
+            font-size: 24px;
+            opacity: 0.9;
+        }
+        
+        .header .meta {
+            margin-top: 20px;
+            font-size: 18px;
+            opacity: 0.85;
+        }
+        
+        .section {
+            padding: 40px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+        }
+        
+        .section h2 {
+            font-size: 28px;
+            color: #667eea;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            display: inline-block;
+        }
+        
+        .section h3 {
+            font-size: 20px;
+            color: #764ba2;
+            margin: 25px 0 15px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .info-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .info-card h4 {
+            color: #667eea;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, #667eea, #764ba2);
+            border-radius: 3px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -26px;
+            top: 25px;
+            width: 14px;
+            height: 14px;
+            background: #667eea;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 3px #667eea;
+        }
+        
+        .timeline-day {
+            font-size: 14px;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-content {
+            font-size: 15px;
+            color: #666;
+        }
+        
+        .timeline-content table {
+            width: 100%;
+            margin-top: 10px;
+            border-collapse: collapse;
+        }
+        
+        .timeline-content td {
+            padding: 8px 12px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .timeline-content td:first-child {
+            font-weight: 600;
+            color: #667eea;
+            width: 100px;
+        }
+        
+        .checklist {
+            list-style: none;
+        }
+        
+        .checklist li {
+            padding: 12px 20px;
+            margin: 10px 0;
+            background: #f9f9f9;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            transition: all 0.2s ease;
+        }
+        
+        .checklist li:hover {
+            background: #f0f0f0;
+        }
+        
+        .checklist li::before {
+            content: '☐';
+            margin-right: 12px;
+            font-size: 18px;
+        }
+        
+        .warning {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border-left: 4px solid #f39c12;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .warning h4 {
+            color: #f39c12;
+            margin-bottom: 10px;
+        }
+        
+        .hotel-card {
+            background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%);
+            border: 2px solid #667eea30;
+            border-radius: 16px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+        
+        .hotel-card h4 {
+            font-size: 22px;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .hotel-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .hotel-info div {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .emoji {
+            font-size: 20px;
+        }
+        
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .footer p {
+            opacity: 0.8;
+            margin: 5px 0;
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+        
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 32px;
+            }
+            
+            .section {
+                padding: 25px;
+            }
+            
+            .timeline {
+                padding-left: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏔️ 川渝之旅 2026</h1>
+            <div class="subtitle">成都·重庆·九寨沟 10日游</div>
+            <div class="meta">
+                📅 2026年3月12日 - 3月21日 | ⏱️ 10天9晚
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>📋 行程概览</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-day">Day 1 | 3月12日（四）</div>
+                    <div class="timeline-title">🌅 抵达重庆</div>
+                    <div class="timeline-content">
+                        各地成员抵达重庆江北国际机场，入住重庆福朋喜来登酒店
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-day">Day 2 | 3月13日（五）</div>
+                    <div class="timeline-title">🌆 重庆自由活动</div>
+                    <div class="timeline-content">
+                        推荐：长江索道、磁器口古镇、火锅晚餐
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-day">Day 3 | 3月14日（六）</div>
+                    <div class="timeline-title">🌃 重庆自由活动</div>
+                    <div class="timeline-content">
+                        自由活动，准备出发九寨沟
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-day">Day 4 | 3月15日（日）</div>
+                    <div class="timeline-title">🏔️ 重庆 → 九寨沟</div>
+                    <div class="timeline-content">
+                        <table>
+                            <tr><td>🚗 车程</td><td>610km，约8小时</td></tr>
+                            <tr><td>🏨 住宿</td><td>九寨沟英迪格酒店</td></tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-day">Day 5 | 3月16日（一）</div>
+                    <div class="timeline-title">🏞️ 九寨沟景区</div>
+                    <div class="timeline-content">
+                        深度游览九寨沟（则查洼沟、日则沟、树正沟）
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-day">Day 6 | 3月17日（二）</div>
+                    <div class="timeline-title">🌊 九寨沟 → 黄龙 → 九寨沟</div>
+                    <div class="timeline-content">
+                        <table>
+                            <tr><td>🚗 车程</td><td>110km×2，约5小时</td></tr>
+                            <tr><td>⚠️ 注意</td><td>黄龙海拔3000+，防高原反应</td></tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-day">Day 7 | 3月18日（三）</div>
+                    <div class="timeline-title">🔙 九寨沟 → 平武 → 重庆</div>
+                    <div class="timeline-content">
+                        游览平武报恩寺，返回重庆
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-day">Day 8 | 3月19日（四）</div>
+                    <div class="timeline-title">🌄 涪陵 · 武隆</div>
+                    <div class="timeline-content">
+                        白鹤梁水下博物馆 + 武隆天生三桥
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-day">Day 9 | 3月20日（五）</div>
+                    <div class="timeline-title">🌃 大足石刻 · 两江夜游</div>
+                    <div class="timeline-content">
+                        大足石刻 + 重庆动物园熊猫馆 + 两江夜游
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-day">Day 10 | 3月21日（六）</div>
+                    <div class="timeline-title">👋 合川 → 返程</div>
+                    <div class="timeline-content">
+                        合川钓鱼城，下午返回各地
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🏨 酒店信息</h2>
+            
+            <div class="hotel-card">
+                <h4>🏨 重庆福朋喜来登酒店</h4>
+                <div class="hotel-info">
+                    <div><span class="emoji">📍</span> 渝中区邹容路82号（解放碑商圈）</div>
+                    <div><span class="emoji">🛏️</span> 高级双床房</div>
+                    <div><span class="emoji">📅</span> 3月12-15日、3月18-20日（共6晚）</div>
+                </div>
+            </div>
+            
+            <div class="hotel-card">
+                <h4>🏨 九寨沟英迪格酒店</h4>
+                <div class="hotel-info">
+                    <div><span class="emoji">📍</span> 九寨沟景区附近</div>
+                    <div><span class="emoji">🛏️</span> 八人共五间</div>
+                    <div><span class="emoji">📅</span> 3月15-18日（共3晚）</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>⚠️ 注意事项</h2>
+            
+            <div class="warning">
+                <h4>🚨 高原反应</h4>
+                <p>九寨沟、黄龙海拔2000-3100米，建议：</p>
+                <ul style="margin: 10px 0 0 20px;">
+                    <li>提前服用红景天</li>
+                    <li>携带氧气罐/氧气袋</li>
+                    <li>避免剧烈运动</li>
+                    <li>注意保暖</li>
+                </ul>
+            </div>
+            
+            <h3>🌡️ 天气</h3>
+            <p>3月川渝气温：10-20℃，高原地区可能更低，建议带保暖外套</p>
+            
+            <h3>🍜 餐饮</h3>
+            <p>餐标：120元/位，当地饮食偏辣，可提前告知调整</p>
+            
+            <h3>💰 支付</h3>
+            <p>支持微信、支付宝，建议备少量现金</p>
+        </div>
+        
+        <div class="section">
+            <h2>🎒 出行清单</h2>
+            <ul class="checklist">
+                <li>身份证/护照</li>
+                <li>驾照（如需租车）</li>
+                <li>旅游健康承诺书（高海拔地区）</li>
+                <li>保暖外套</li>
+                <li>舒适运动鞋</li>
+                <li>墨镜、帽子</li>
+                <li>雨伞/雨衣</li>
+                <li>氧气罐/氧气袋</li>
+                <li>红景天（预防高原反应）</li>
+                <li>感冒药、肠胃药</li>
+                <li>手机充电器</li>
+                <li>充电宝</li>
+                <li>防晒霜（高原紫外线强）</div>
+                <li>润唇膏、保湿霜</li>
+            </ul>
+        </div>
+        
+        <div class="footer">
+            <p>祝旅途愉快！🧡</p>
+            <p><small>Powered by Marble AI | 制作日期：2026年2月21日</small></p>
+        </div>
+    </div>
+</body>
+</html>
