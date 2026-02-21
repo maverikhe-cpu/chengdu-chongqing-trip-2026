@@ -5,282 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>川渝之旅 2026 - 成都重庆九寨沟10日游</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-            line-height: 1.8;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: #fff;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            overflow: hidden;
-        }
-        
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 60px 40px;
-            text-align: center;
-        }
-        
-        .header h1 {
-            font-size: 48px;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
-        
-        .header .subtitle {
-            font-size: 24px;
-            opacity: 0.9;
-        }
-        
-        .header .meta {
-            margin-top: 20px;
-            font-size: 18px;
-            opacity: 0.85;
-        }
-        
-        .section {
-            padding: 40px;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .section:last-child {
-            border-bottom: none;
-        }
-        
-        .section h2 {
-            font-size: 28px;
-            color: #667eea;
-            margin-bottom: 25px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #667eea;
-            display: inline-block;
-        }
-        
-        .section h3 {
-            font-size: 20px;
-            color: #764ba2;
-            margin: 25px 0 15px;
-        }
-        
-        .timeline {
-            position: relative;
-            padding-left: 30px;
-        }
-        
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 8px;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: linear-gradient(to bottom, #667eea, #764ba2);
-            border-radius: 3px;
-        }
-        
-        .timeline-item {
-            position: relative;
-            margin-bottom: 30px;
-            padding: 20px;
-            background: #f9f9f9;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-        }
-        
-        .timeline-item:hover {
-            transform: translateX(5px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
-        
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -26px;
-            top: 25px;
-            width: 14px;
-            height: 14px;
-            background: #667eea;
-            border-radius: 50%;
-            border: 3px solid #fff;
-            box-shadow: 0 0 0 3px #667eea;
-        }
-        
-        .timeline-day {
-            font-size: 14px;
-            color: #667eea;
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-        
-        .timeline-title {
-            font-size: 20px;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 10px;
-        }
-        
-        .timeline-content {
-            font-size: 15px;
-            color: #666;
-        }
-        
-        .timeline-content table {
-            width: 100%;
-            margin-top: 10px;
-            border-collapse: collapse;
-        }
-        
-        .timeline-content td {
-            padding: 8px 12px;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .timeline-content td:first-child {
-            font-weight: 600;
-            color: #667eea;
-            width: 100px;
-        }
-        
-        .attractions {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 15px;
-        }
-        
-        .attraction {
-            background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%);
-            padding: 15px;
-            border-radius: 10px;
-            border-left: 4px solid #667eea;
-        }
-        
-        .attraction h5 {
-            color: #667eea;
-            font-size: 16px;
-            margin-bottom: 8px;
-        }
-        
-        .attraction p {
-            font-size: 13px;
-            color: #666;
-        }
-        
-        .attraction .highlight {
-            color: #e74c3c;
-            font-weight: 600;
-        }
-        
-        .checklist {
-            list-style: none;
-        }
-        
-        .checklist li {
-            padding: 12px 20px;
-            margin: 10px 0;
-            background: #f9f9f9;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            transition: all 0.2s ease;
-        }
-        
-        .checklist li:hover {
-            background: #f0f0f0;
-        }
-        
-        .checklist li::before {
-            content: '☐';
-            margin-right: 12px;
-            font-size: 18px;
-        }
-        
-        .warning {
-            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
-            border-left: 4px solid #f39c12;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 15px 0;
-        }
-        
-        .warning h4 {
-            color: #f39c12;
-            margin-bottom: 10px;
-        }
-        
-        .hotel-card {
-            background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%);
-            border: 2px solid #667eea30;
-            border-radius: 16px;
-            padding: 25px;
-            margin: 20px 0;
-        }
-        
-        .hotel-card h4 {
-            font-size: 22px;
-            color: #667eea;
-            margin-bottom: 15px;
-        }
-        
-        .hotel-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-        }
-        
-        .hotel-info div {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .emoji {
-            font-size: 20px;
-        }
-        
-        .footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 30px;
-        }
-        
-        .footer p {
-            opacity: 0.8;
-            margin: 5px 0;
-        }
-        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif; line-height: 1.8; color: #333; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: #fff; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 60px 40px; text-align: center; }
+        .header h1 { font-size: 48px; margin-bottom: 10px; }
+        .header .subtitle { font-size: 24px; opacity: 0.9; }
+        .header .meta { margin-top: 20px; font-size: 18px; opacity: 0.85; }
+        .section { padding: 40px; border-bottom: 1px solid #eee; }
+        .section:last-child { border-bottom: none; }
+        .section h2 { font-size: 28px; color: #667eea; margin-bottom: 25px; padding-bottom: 10px; border-bottom: 3px solid #667eea; display: inline-block; }
+        .section h3 { font-size: 20px; color: #764ba2; margin: 25px 0 15px; }
+        .timeline { position: relative; padding-left: 30px; }
+        .timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 3px; background: linear-gradient(to bottom, #667eea, #764ba2); border-radius: 3px; }
+        .timeline-item { position: relative; margin-bottom: 30px; padding: 20px; background: #f9f9f9; border-radius: 12px; transition: all 0.3s ease; }
+        .timeline-item:hover { transform: translateX(5px); box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+        .timeline-item::before { content: ''; position: absolute; left: -26px; top: 25px; width: 14px; height: 14px; background: #667eea; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 0 0 3px #667eea; }
+        .timeline-day { font-size: 14px; color: #667eea; font-weight: 600; margin-bottom: 5px; }
+        .timeline-title { font-size: 20px; font-weight: bold; color: #333; margin-bottom: 10px; }
+        .timeline-content { font-size: 15px; color: #666; }
+        .timeline-content table { width: 100%; margin-top: 10px; border-collapse: collapse; }
+        .timeline-content td { padding: 8px 12px; border-bottom: 1px solid #eee; }
+        .timeline-content td:first-child { font-weight: 600; color: #667eea; width: 100px; }
+        .attractions { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px; }
+        .attraction { background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%); padding: 15px; border-radius: 10px; border-left: 4px solid #667eea; }
+        .attraction h5 { color: #667eea; font-size: 16px; margin-bottom: 8px; }
+        .attraction p { font-size: 13px; color: #666; }
+        .attraction .highlight { color: #e74c3c; font-weight: 600; }
+        .attraction .star { color: #f39c12; }
+        .checklist { list-style: none; }
+        .checklist li { padding: 12px 20px; margin: 10px 0; background: #f9f9f9; border-radius: 8px; }
+        .checklist li::before { content: '☐'; margin-right: 12px; font-size: 18px; }
+        .warning { background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%); border-left: 4px solid #f39c12; padding: 20px; border-radius: 8px; margin: 15px 0; }
+        .warning h4 { color: #f39c12; margin-bottom: 10px; }
+        .hotel-card { background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%); border: 2px solid #667eea30; border-radius: 16px; padding: 25px; margin: 20px 0; }
+        .hotel-card h4 { font-size: 22px; color: #667eea; margin-bottom: 15px; }
+        .hotel-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+        .hotel-info div { display: flex; align-items: center; gap: 8px; }
+        .emoji { font-size: 20px; }
+        .footer { background: #333; color: white; text-align: center; padding: 30px; }
+        .footer p { opacity: 0.8; margin: 5px 0; }
         @media (max-width: 600px) {
-            .header h1 {
-                font-size: 32px;
-            }
-            
-            .section {
-                padding: 25px;
-            }
-            
-            .timeline {
-                padding-left: 20px;
-            }
-            
-            .attractions {
-                grid-template-columns: 1fr;
-            }
+            .header h1 { font-size: 32px; }
+            .section { padding: 25px; }
+            .timeline { padding-left: 20px; }
+            .attractions { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -289,9 +58,7 @@
         <div class="header">
             <h1>🏔️ 川渝之旅 2026</h1>
             <div class="subtitle">成都·重庆·九寨沟 10日游</div>
-            <div class="meta">
-                📅 2026年3月12日 - 3月21日 | ⏱️ 10天9晚
-            </div>
+            <div class="meta">📅 2026年3月12日 - 3月21日 | ⏱️ 10天9晚</div>
         </div>
         
         <div class="section">
@@ -301,61 +68,52 @@
                     <div class="timeline-day">Day 1 | 3月12日（四）</div>
                     <div class="timeline-title">🌅 抵达重庆</div>
                     <div class="timeline-content">
-                        各地成员抵达重庆江北国际机场，入住重庆福朋喜来登酒店
-                        <div class="attractions">
-                            <div class="attraction">
-                                <h5>🌃 解放碑</h5>
-                                <p>重庆地标，购物美食中心</p>
-                            </div>
-                            <div class="attraction">
-                                <h5>🏛️ 洪崖洞</h5>
-                                <p>夜景必打卡，吊脚楼群</p>
-                            </div>
-                        </div>
+                        抵达重庆江北机场 → 入住福朋喜来登 → 解放碑商圈逛吃
                     </div>
                 </div>
                 
                 <div class="timeline-item">
                     <div class="timeline-day">Day 2 | 3月13日（五）</div>
-                    <div class="timeline-title">🌆 重庆深度游</div>
+                    <div class="timeline-title">🌆 重庆深度游 - 上半日</div>
                     <div class="timeline-content">
                         <div class="attractions">
-                            <div class="attraction">
-                                <h5>🚡 长江索道</h5>
-                                <p>山城空中巴士，俯瞰两江</p>
-                            </div>
-                            <div class="attraction">
-                                <h5>🏮 磁器口古镇</h5>
-                                <p>千年古镇，火锅一条街</p>
-                            </div>
-                            <div class="attraction">
-                                <h5>🗿 南山一棵树</h5>
-                                <p class="highlight">★ 必去！</p>
-                                <p>俯瞰重庆夜景最佳位置</p>
-                            </div>
+                            <div class="attraction"><h5>🏛️ 佳实养老院</h5><p>从山顶往下逛</p></div>
+                            <div class="attraction"><h5>🚶 山城步道</h5><p>10分钟</p></div>
+                            <div class="attraction"><h5>🪜 十八梯</h5><p>午餐</p></div>
+                            <div class="attraction"><h5>📚 大隧道遗址</h5><p>重庆历史</p></div>
+                            <div class="attraction"><h5>🏛️ 博物馆</h5><p>了解重庆</p></div>
+                            <div class="attraction"><h5>🛒 八一好吃街</h5><p>5分钟</p></div>
+                            <div class="attraction"><h5>🏙️ 解放碑</h5><p>2分钟</p></div>
+                            <div class="attraction"><h5>🌃 洪崖洞</h5><p>夜景必去</p></div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="timeline-item">
                     <div class="timeline-day">Day 3 | 3月14日（六）</div>
-                    <div class="timeline-title">🌃 重庆最后一天</div>
+                    <div class="timeline-title">🎯 重庆深度游 - 下半日 + ⭐无人机表演</div>
                     <div class="timeline-content">
-                        自由活动 + 出发前准备
                         <div class="attractions">
-                            <div class="attraction">
-                                <h5>🎭 长江夜游</h5>
-                                <p>两江游船赏夜景</p>
-                            </div>
-                            <div class="attraction">
-                                <h5>🍲 重庆火锅</h5>
-                                <p class="highlight">★ 必吃！</p>
-                                <p>地道老火锅，麻辣鲜香</p>
-                            </div>
-                            <div class="attraction">
-                                <h5>🛒 八一好吃街</h5>
-                                <p>重庆美食集合地</p>
-                            </div>
+                            <div class="attraction"><h5>🚇 地铁2号线</h5><p>重庆8D魔幻</p></div>
+                            <div class="attraction"><h5>🚝 李子坝</h5><p>轻轨穿楼</p></div>
+                            <div class="attraction"><h5>🏛️ 人民大礼堂</h5><p>标志性建筑</p></div>
+                            <div class="attraction"><h5>📚 三峡博物馆</h5><p>了解三峡</p></div>
+                            <div class="attraction"><h5>🍜 观音桥美食街</h5><p>晚餐</p></div>
+                            <div class="attraction"><h5>🎨 北仓文创街</h5><p>文艺小清新</p></div>
+                            <div class="attraction"><h5>🛍️ 北城天街</h5><p>购物</p></div>
+                        </div>
+                        <br>
+                        <div class="attraction" style="border-left-color: #f39c12; background: linear-gradient(135deg, #fff3cd0 0%, #ffeaa7100%);">
+                            <h5>⭐ 无人机表演 20:30（周六限定）</h5>
+                            <p>📍 观看地点：<b>长嘉汇购物公园观景台</b>（4层或6层，有座位）</p>
+                            <p>⏱️ 表演时长：<b>18分钟</b>（3分钟灯光仪式 + 15分钟无人机秀）</p>
+                            <p>✨ 亮点：<b>5,000+无人机</b>同步表演，3D立体图案</p>
+                            <p class="star">★ 建议提前占位！</p>
+                        </div>
+                        <br>
+                        <div class="attractions">
+                            <div class="attraction"><h5>🐠 星光68广场</h5><p>3层楼高水族馆</p></div>
+                            <div class="attraction"><h5>🌙 九街</h5><p>重庆夜生活</p></div>
                         </div>
                     </div>
                 </div>
@@ -432,7 +190,6 @@
         
         <div class="section">
             <h2>🏨 酒店信息</h2>
-            
             <div class="hotel-card">
                 <h4>🏨 重庆福朋喜来登酒店</h4>
                 <div class="hotel-info">
@@ -441,7 +198,6 @@
                     <div><span class="emoji">📅</span> 3月12-15日、3月18-20日（共6晚）</div>
                 </div>
             </div>
-            
             <div class="hotel-card">
                 <h4>🏨 九寨沟英迪格酒店</h4>
                 <div class="hotel-info">
@@ -454,7 +210,6 @@
         
         <div class="section">
             <h2>⚠️ 注意事项</h2>
-            
             <div class="warning">
                 <h4>🚨 高原反应</h4>
                 <p>九寨沟、黄龙海拔2000-3100米，建议：</p>
@@ -465,26 +220,8 @@
                     <li>注意保暖</li>
                 </ul>
             </div>
-            
             <h3>🌡️ 天气</h3>
             <p>3月川渝气温：10-20℃，高原地区可能更低，建议带保暖外套</p>
-            
-            <h3>🍜 重庆美食推荐</h3>
-            <div class="attractions">
-                <div class="attraction">
-                    <h5>🍲 重庆火锅</h5>
-                    <p>火锅一条街、佩姐老火锅</p>
-                </div>
-                <div class="attraction">
-                    <h5>🍜 重庆小面</h5>
-                    <p>花市豌杂面、 универсал</p>
-                </div>
-                <div class="attraction">
-                    <h5>🌶️ 江湖菜</h5>
-                    <p>辣子鸡、毛血旺</p>
-                </div>
-            </div>
-            
             <h3>💰 支付</h3>
             <p>支持微信、支付宝，建议备少量现金</p>
         </div>
@@ -493,19 +230,15 @@
             <h2>🎒 出行清单</h2>
             <ul class="checklist">
                 <li>身份证/护照</li>
-                <li>驾照（如需租车）</li>
-                <li>旅游健康承诺书（高海拔地区）</li>
                 <li>保暖外套</li>
                 <li>舒适运动鞋</li>
                 <li>墨镜、帽子</li>
                 <li>雨伞/雨衣</li>
                 <li>氧气罐/氧气袋</li>
                 <li>红景天（预防高原反应）</li>
-                <li>感冒药、肠胃药</li>
                 <li>手机充电器</li>
                 <li>充电宝</li>
-                <li>防晒霜（高原紫外线强）</li>
-                <li>润唇膏、保湿霜</li>
+                <li>防晒霜</li>
             </ul>
         </div>
         
