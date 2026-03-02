@@ -381,9 +381,11 @@
         // 多语言翻译
         const i18n = {
             zh: {
+                // Header
                 title: '🏔️ 川渝之旅 2026',
                 subtitle: '成都·重庆·九寨沟 10日游',
                 days: '10天9晚',
+                // Sections
                 itinerary: '📋 行程概览',
                 clickHint: '💡 点击景点查看详细介绍',
                 hotels: '🏨 酒店信息',
@@ -391,25 +393,66 @@
                 packingList: '🎒 出行清单',
                 happyTrip: '祝旅途愉快！🧡',
                 footer: 'Powered by Marble AI | 交互式路书：2026年3月2日',
-                // 景点
+                // Days
+                day1: 'Day 1 | 3月12日（四）', day1Title: '🌅 抵达重庆', day1Desc: '抵达重庆江北机场 → 入住福朋喜来登 → 解放碑商圈逛吃',
+                day2: 'Day 2 | 3月13日（五）', day2Title: '🌆 重庆深度游 - 上半日',
+                day3: 'Day 3 | 3月14日（六）', day3Title: '🎯 重庆深度游 - 下半日 + ⭐无人机表演',
+                day4: 'Day 4 | 3月15日（日）', day4Title: '🏔️ 重庆 → 九寨沟',
+                day5: 'Day 5 | 3月16日（一）', day5Title: '🏞️ 九寨沟景区',
+                day6: 'Day 6 | 3月17日（二）', day6Title: '🌊 九寨沟 → 黄龙 → 九寨沟',
+                day7: 'Day 7 | 3月18日（三）', day7Title: '🔙 九寨沟 → 平武 → 重庆', day7Desc: '游览平武报恩寺，返回重庆',
+                day8: 'Day 8 | 3月19日（四）', day8Title: '🌄 涪陵 · 武隆',
+                day9: 'Day 9 | 3月20日（五）', day9Title: '🌃 大足石刻 · 两江夜游',
+                day10: 'Day 10 | 3月21日（六）', day10Title: '👋 合川 → 返程',
+                // Spots
                 spot_hongYaDong: '洪崖洞', spot_jieFangBei: '解放碑', spot_liZiBa: '李子坝',
                 spot_shiBaTi: '十八梯', spot_shanChengBuDao: '山城步道', spot_renMinDaLiTang: '人民大礼堂',
                 spot_guanYinQiao: '观音桥', spot_jiuZhaiGou: '九寨沟', spot_huangLong: '黄龙',
                 spot_tianShengSanQiao: '武隆天生三桥', spot_daZuShiKe: '大足石刻',
                 spot_liangJiangYeYou: '两江夜游', spot_diaoYuCheng: '合川钓鱼城',
-                // 景点描述
+                // Spot descriptions
                 spot_jieFangBei_desc: '重庆地标', mustSeeNight: '夜景必去', trainThroughBuilding: '轻轨穿楼',
                 iconicBuilding: '标志性建筑', foodStreet: '美食街', fairyland: '人间仙境',
                 colorfulPools: '高原彩色仙境', movieLocation: '电影取景地', unesco: '世界文化遗产',
                 nightView: '重庆夜景', godWhip: '上帝折鞭之处',
-                // 其他
-                lunch: '午餐', droneShow: '无人机表演', satOnly: '周六限定',
+                // Common
+                time10min: '10分钟', time2min: '2分钟', lunch: '午餐', depart: '出发', hotel: '酒店',
+                enRoute: '途中', arrive: '抵达', jiuzhaigou: '九寨沟', driveTime: '车程', about8h: '约8小时',
+                about5h: '约5小时', note: '注意', altitude3000: '黄龙海拔3000+，防高原反应',
+                includedVIP: '已含VIP观光车、导游', included: '已含门票、交通、导游',
+                droneShow: '无人机表演', satOnly: '周六限定', droneLocation: '长嘉汇购物公园观景台',
+                returnFlight: '返程航班', cqToHk: '重庆→香港',
+                // Hotels
+                hotel1Name: '重庆福朋喜来登酒店', hotel1Addr: '渝中区邹容路82号（解放碑商圈）',
+                twinRoom: '高级双床房', hotel1Dates: '3月12-15日、3月18-20日（共6晚）',
+                hotel2Name: '九寨沟英迪格酒店', hotel2Addr: '九寨沟景区附近',
+                hotel2Room: '八人共五间', hotel2Dates: '3月15-18日（共3晚）',
+                // Weather
+                altitudeSickness: '高原反应', altitudeDesc: '九寨沟、黄龙海拔2000-3100米，建议：',
+                altitudeTip1: '提前服用红景天', altitudeTip2: '携带氧气罐/氧气袋',
+                altitudeTip3: '避免剧烈运动', altitudeTip4: '注意保暖',
+                weatherForecast: '🌡️ 天气预报（3月12-17日）', chongqing: '重庆',
+                date: '日期', highTemp: '最高温', lowTemp: '最低温', weather: '天气',
+                lightRain: '小雨', cloudy: '多云', drizzle: '毛毛雨', lightSnow: '小雪', fog: '雾', moderateSnow: '中雪',
+                cqWeatherNote: '重庆特点：温暖潮湿（15-21°C），几乎每天有雨，记得带伞和防水外套！',
+                jzgWeatherNote: '九寨沟特点：高原海拔（2335米），昼夜温差大，早晚接近零度，一定要带厚衣服！可能下雪，但雪景会很美 ❄️',
+                payment: '💰 支付', paymentNote: '支持微信、支付宝，建议备少量现金',
+                // Packing
+                cqEssentials: '重庆必备', idPassport: '身份证/护照', thinJacket: '薄外套 + 长袖（15-21°C）',
+                umbrella: '雨伞/雨衣（几乎每天有雨）', waterproofShoes: '防水鞋/防滑鞋', comfyShoes: '舒适运动鞋（重庆多坡道）',
+                jzgEssentials: '九寨沟必备', downJacket: '羽绒服/冲锋衣（早晚接近0°C）',
+                thermalUnderwear: '保暖内衣', hatGloves: '帽子 + 手套', nonSlipShoes: '防滑鞋（可能有雪）',
+                oxygenTank: '氧气罐/氧气袋', rhodiola: '红景天（预防高原反应）',
+                generalItems: '通用物品', sunglasses: '墨镜、帽子', charger: '手机充电器',
+                powerBank: '充电宝', sunscreen: '防晒霜', cash: '少量现金',
                 tipsTitle: '💡 实用贴士'
             },
             en: {
+                // Header
                 title: '🏔️ Sichuan Trip 2026',
                 subtitle: 'Chengdu · Chongqing · Jiuzhaigou 10 Days',
                 days: '10 Days 9 Nights',
+                // Sections
                 itinerary: '📋 Itinerary',
                 clickHint: '💡 Click attractions for details',
                 hotels: '🏨 Hotels',
@@ -417,6 +460,17 @@
                 packingList: '🎒 Packing List',
                 happyTrip: 'Have a wonderful trip! 🧡',
                 footer: 'Powered by Marble AI | Interactive Guide: March 2, 2026',
+                // Days
+                day1: 'Day 1 | Mar 12 (Thu)', day1Title: '🌅 Arrive in Chongqing', day1Desc: 'Arrive at Chongqing Airport → Check in Four Points Sheraton → Explore Jiefangbei',
+                day2: 'Day 2 | Mar 13 (Fri)', day2Title: '🌆 Chongqing City Tour - Part 1',
+                day3: 'Day 3 | Mar 14 (Sat)', day3Title: '🎯 Chongqing City Tour - Part 2 + ⭐Drone Show',
+                day4: 'Day 4 | Mar 15 (Sun)', day4Title: '🏔️ Chongqing → Jiuzhaigou',
+                day5: 'Day 5 | Mar 16 (Mon)', day5Title: '🏞️ Jiuzhaigou Valley',
+                day6: 'Day 6 | Mar 17 (Tue)', day6Title: '🌊 Jiuzhaigou → Huanglong → Jiuzhaigou',
+                day7: 'Day 7 | Mar 18 (Wed)', day7Title: '🔙 Jiuzhaigou → Pingwu → Chongqing', day7Desc: 'Visit Pingwu Bao\'en Temple, return to Chongqing',
+                day8: 'Day 8 | Mar 19 (Thu)', day8Title: '🌄 Fuling · Wulong',
+                day9: 'Day 9 | Mar 20 (Fri)', day9Title: '🌃 Dazu Rock Carvings · Two Rivers Cruise',
+                day10: 'Day 10 | Mar 21 (Sat)', day10Title: '👋 Hechuan → Departure',
                 // Spots
                 spot_hongYaDong: 'Hongyadong', spot_jieFangBei: 'Jiefangbei', spot_liZiBa: 'Liziba',
                 spot_shiBaTi: 'Shibati', spot_shanChengBuDao: 'Mountain Trail', spot_renMinDaLiTang: 'Great Hall',
@@ -429,8 +483,36 @@
                 foodStreet: 'Food Street', fairyland: 'Fairyland', colorfulPools: 'Colorful Pools',
                 movieLocation: 'Movie Location', unesco: 'UNESCO Heritage', nightView: 'Night View',
                 godWhip: 'Where God\'s Whip Broke',
-                // Others
-                lunch: 'Lunch', droneShow: 'Drone Show', satOnly: 'Sat Only',
+                // Common
+                time10min: '10 min', time2min: '2 min', lunch: 'Lunch', depart: 'Depart', hotel: 'Hotel',
+                enRoute: 'En route', arrive: 'Arrive', jiuzhaigou: 'Jiuzhaigou', driveTime: 'Drive', about8h: '~8 hours',
+                about5h: '~5 hours', note: 'Note', altitude3000: 'Huanglong is 3000+m altitude, beware of altitude sickness',
+                includedVIP: 'VIP shuttle bus & guide included', included: 'Tickets, transport & guide included',
+                droneShow: 'Drone Show', satOnly: 'Sat Only', droneLocation: 'Changjiahui Shopping Park View Deck',
+                returnFlight: 'Return flight', cqToHk: 'Chongqing → Hong Kong',
+                // Hotels
+                hotel1Name: 'Four Points by Sheraton Chongqing', hotel1Addr: '82 Zourong Rd, Yuzhong District (Jiefangbei area)',
+                twinRoom: 'Superior Twin Room', hotel1Dates: 'Mar 12-15, Mar 18-20 (6 nights total)',
+                hotel2Name: 'Hotel Indigo Jiuzhaigou', hotel2Addr: 'Near Jiuzhaigou Scenic Area',
+                hotel2Room: '5 rooms for 8 people', hotel2Dates: 'Mar 15-18 (3 nights)',
+                // Weather
+                altitudeSickness: 'Altitude Sickness', altitudeDesc: 'Jiuzhaigou & Huanglong are 2000-3100m elevation. Tips:',
+                altitudeTip1: 'Take Rhodiola beforehand', altitudeTip2: 'Bring oxygen tank/bag',
+                altitudeTip3: 'Avoid strenuous exercise', altitudeTip4: 'Keep warm',
+                weatherForecast: '🌡️ Weather Forecast (Mar 12-17)', chongqing: 'Chongqing',
+                date: 'Date', highTemp: 'High', lowTemp: 'Low', weather: 'Weather',
+                lightRain: 'Light Rain', cloudy: 'Cloudy', drizzle: 'Drizzle', lightSnow: 'Light Snow', fog: 'Fog', moderateSnow: 'Snow',
+                cqWeatherNote: 'Chongqing: Warm & humid (15-21°C), rain almost daily - bring umbrella & waterproof jacket!',
+                jzgWeatherNote: 'Jiuzhaigou: High altitude (2335m), large temp swings, near 0°C in mornings/evenings - bring warm clothes! May snow, but snow scenery is beautiful ❄️',
+                payment: '💰 Payment', paymentNote: 'WeChat Pay & Alipay accepted, bring some cash',
+                // Packing
+                cqEssentials: 'Chongqing Essentials', idPassport: 'ID/Passport', thinJacket: 'Light jacket + long sleeves (15-21°C)',
+                umbrella: 'Umbrella/raincoat (rain almost daily)', waterproofShoes: 'Waterproof/non-slip shoes', comfyShoes: 'Comfortable walking shoes (lots of hills)',
+                jzgEssentials: 'Jiuzhaigou Essentials', downJacket: 'Down jacket/windbreaker (near 0°C mornings/evenings)',
+                thermalUnderwear: 'Thermal underwear', hatGloves: 'Hat + gloves', nonSlipShoes: 'Non-slip shoes (may be snowy)',
+                oxygenTank: 'Oxygen tank/bag', rhodiola: 'Rhodiola (prevent altitude sickness)',
+                generalItems: 'General Items', sunglasses: 'Sunglasses & hat', charger: 'Phone charger',
+                powerBank: 'Power bank', sunscreen: 'Sunscreen', cash: 'Some cash',
                 tipsTitle: '💡 Tips'
             }
         };
