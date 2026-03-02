@@ -8,10 +8,9 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif; line-height: 1.8; color: #333; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
         .container { max-width: 900px; margin: 0 auto; background: #fff; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); overflow: hidden; }
-        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 60px 40px; text-align: center; position: relative; }
-        .header h1 { font-size: 48px; margin-bottom: 10px; }
-        .header .subtitle { font-size: 24px; opacity: 0.9; }
-        .header .meta { margin-top: 20px; font-size: 18px; opacity: 0.85; }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 35px 40px; text-align: center; position: relative; }
+        .header h1 { font-size: 36px; margin: 0 0 8px 0; }
+        .header .meta { font-size: 16px; opacity: 0.9; }
         .lang-switch { position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.5); color: white; padding: 8px 16px; border-radius: 20px; cursor: pointer; font-size: 14px; font-weight: 600; transition: all 0.3s; }
         .lang-switch:hover { background: rgba(255,255,255,0.3); transform: scale(1.05); }
         .section { padding: 40px; border-bottom: 1px solid #eee; }
@@ -67,7 +66,8 @@
         .modal-tips li { margin: 5px 0; }
         
         @media (max-width: 600px) {
-            .header h1 { font-size: 32px; }
+            .header h1 { font-size: 28px; }
+            .header .meta { font-size: 14px; }
             .section { padding: 25px; }
             .timeline { padding-left: 20px; }
             .attractions { grid-template-columns: 1fr; }
@@ -99,7 +99,6 @@
         <div class="header">
             <button class="lang-switch" onclick="switchLang()" id="langBtn">EN</button>
             <h1 data-i18n="title">🏔️ 川渝之旅 2026</h1>
-            <div class="subtitle" data-i18n="subtitle">成都·重庆·九寨沟 10日游</div>
             <div class="meta">📅 2026年3月12日 - 3月21日 | ⏱️ <span data-i18n="days">10天9晚</span></div>
         </div>
         
