@@ -73,7 +73,25 @@
             .attractions { grid-template-columns: 1fr; }
             .modal { margin: 10px; border-radius: 15px; }
             .lang-switch { top: 10px; right: 10px; padding: 6px 12px; font-size: 12px; }
+            .nav-btn { right: 15px; bottom: 15px; width: 50px; height: 50px; font-size: 20px; }
+            .nav-menu { right: 15px; bottom: 75px; width: 200px; max-height: 60vh; }
         }
+        
+        /* Quick Navigation */
+        .nav-btn { position: fixed; right: 25px; bottom: 25px; width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; font-size: 24px; cursor: pointer; box-shadow: 0 4px 20px rgba(102,126,234,0.4); z-index: 999; transition: all 0.3s; }
+        .nav-btn:hover { transform: scale(1.1); box-shadow: 0 6px 30px rgba(102,126,234,0.5); }
+        .nav-btn.active { transform: rotate(45deg); }
+        .nav-menu { position: fixed; right: 25px; bottom: 90px; background: white; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); z-index: 998; display: none; overflow: hidden; width: 220px; max-height: 70vh; overflow-y: auto; }
+        .nav-menu.active { display: block; animation: navSlideUp 0.3s ease; }
+        @keyframes navSlideUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .nav-title { padding: 15px 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; font-weight: 600; font-size: 14px; }
+        .nav-section { padding: 10px 0; border-bottom: 1px solid #eee; }
+        .nav-section:last-child { border-bottom: none; }
+        .nav-section-title { padding: 5px 20px; font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 1px; }
+        .nav-link { display: block; padding: 10px 20px; color: #333; text-decoration: none; font-size: 14px; transition: all 0.2s; cursor: pointer; }
+        .nav-link:hover { background: #f5f5f5; color: #667eea; padding-left: 25px; }
+        .nav-link span { opacity: 0.6; margin-right: 8px; }
+        .nav-link span:first-child { opacity: 1; font-weight: 600; color: #667eea; min-width: 30px; display: inline-block; }
     </style>
 </head>
 <body>
@@ -85,11 +103,11 @@
             <div class="meta">📅 2026年3月12日 - 3月21日 | ⏱️ <span data-i18n="days">10天9晚</span></div>
         </div>
         
-        <div class="section">
+        <div class="section" id="itinerary">
             <h2 data-i18n="itinerary">📋 行程概览</h2>
             <p style="color: #999; font-size: 13px; margin-bottom: 15px;" data-i18n="clickHint">💡 点击景点查看详细介绍</p>
             <div class="timeline">
-                <div class="timeline-item">
+                <div class="timeline-item" id="day1">
                     <div class="timeline-day" data-i18n="day1">Day 1 | 3月12日（四）</div>
                     <div class="timeline-title" data-i18n="day1Title">🌅 抵达重庆</div>
                     <div class="timeline-content">
@@ -103,7 +121,7 @@
                     </div>
                 </div>
                 
-                <div class="timeline-item">
+                <div class="timeline-item" id="day2">
                     <div class="timeline-day" data-i18n="day2">Day 2 | 3月13日（五）</div>
                     <div class="timeline-title" data-i18n="day2Title">🌆 重庆深度游 - 上半日</div>
                     <div class="timeline-content">
@@ -128,7 +146,7 @@
                     </div>
                 </div>
                 
-                <div class="timeline-item">
+                <div class="timeline-item" id="day3">
                     <div class="timeline-day" data-i18n="day3">Day 3 | 3月14日（六）</div>
                     <div class="timeline-title" data-i18n="day3Title">🎯 重庆深度游 - 下半日 + ⭐无人机表演</div>
                     <div class="timeline-content">
@@ -154,7 +172,7 @@
                     </div>
                 </div>
                 
-                <div class="timeline-item">
+                <div class="timeline-item" id="day4">
                     <div class="timeline-day" data-i18n="day4">Day 4 | 3月15日（日）</div>
                     <div class="timeline-title" data-i18n="day4Title">🏔️ 重庆 → 九寨沟</div>
                     <div class="timeline-content">
@@ -167,7 +185,7 @@
                     </div>
                 </div>
                 
-                <div class="timeline-item">
+                <div class="timeline-item" id="day5">
                     <div class="timeline-day" data-i18n="day5">Day 5 | 3月16日（一）</div>
                     <div class="timeline-title" data-i18n="day5Title">🏞️ 九寨沟景区</div>
                     <div class="timeline-content">
@@ -181,7 +199,7 @@
                     </div>
                 </div>
                 
-                <div class="timeline-item">
+                <div class="timeline-item" id="day6">
                     <div class="timeline-day" data-i18n="day6">Day 6 | 3月17日（二）</div>
                     <div class="timeline-title" data-i18n="day6Title">🌊 九寨沟 → 黄龙 → 九寨沟</div>
                     <div class="timeline-content">
@@ -198,7 +216,7 @@
                     </div>
                 </div>
                 
-                <div class="timeline-item">
+                <div class="timeline-item" id="day7">
                     <div class="timeline-day" data-i18n="day7">Day 7 | 3月18日（三）</div>
                     <div class="timeline-title" data-i18n="day7Title">🔙 九寨沟 → 平武 → 重庆</div>
                     <div class="timeline-content">
@@ -207,7 +225,7 @@
                     </div>
                 </div>
                 
-                <div class="timeline-item">
+                <div class="timeline-item" id="day8">
                     <div class="timeline-day" data-i18n="day8">Day 8 | 3月19日（四）</div>
                     <div class="timeline-title" data-i18n="day8Title">🌄 涪陵 · 武隆</div>
                     <div class="timeline-content">
@@ -221,7 +239,7 @@
                     </div>
                 </div>
                 
-                <div class="timeline-item">
+                <div class="timeline-item" id="day9">
                     <div class="timeline-day" data-i18n="day9">Day 9 | 3月20日（五）</div>
                     <div class="timeline-title" data-i18n="day9Title">🌃 大足石刻 · 两江夜游</div>
                     <div class="timeline-content">
@@ -238,7 +256,7 @@
                     </div>
                 </div>
                 
-                <div class="timeline-item">
+                <div class="timeline-item" id="day10">
                     <div class="timeline-day" data-i18n="day10">Day 10 | 3月21日（六）</div>
                     <div class="timeline-title" data-i18n="day10Title">👋 合川 → 返程</div>
                     <div class="timeline-content">
@@ -254,7 +272,7 @@
             </div>
         </div>
         
-        <div class="section">
+        <div class="section" id="hotels">
             <h2 data-i18n="hotels">🏨 酒店信息</h2>
             <div class="hotel-card">
                 <h4>🏨 <span data-i18n="hotel1Name">重庆福朋喜来登酒店</span></h4>
@@ -274,7 +292,7 @@
             </div>
         </div>
         
-        <div class="section">
+        <div class="section" id="notices">
             <h2 data-i18n="notices">⚠️ 注意事项</h2>
             <div class="warning">
                 <h4>🚨 <span data-i18n="altitudeSickness">高原反应</span></h4>
@@ -324,7 +342,7 @@
             <p data-i18n="paymentNote">支持微信、支付宝，建议备少量现金</p>
         </div>
         
-        <div class="section">
+        <div class="section" id="packing">
             <h2 data-i18n="packingList">🎒 出行清单</h2>
             <h3 style="color: #667eea; margin-bottom: 15px;" data-i18n="cqEssentials">重庆必备</h3>
             <ul class="checklist">
@@ -356,6 +374,31 @@
         <div class="footer">
             <p data-i18n="happyTrip">祝旅途愉快！🧡</p>
             <p><small data-i18n="footer">Powered by Marble AI | 交互式路书：2026年3月2日</small></p>
+        </div>
+    </div>
+    
+    <!-- Quick Navigation -->
+    <button class="nav-btn" onclick="toggleNav()" id="navBtn">☰</button>
+    <div class="nav-menu" id="navMenu">
+        <div class="nav-title">🧭 <span data-i18n="quickNav">快速导航</span></div>
+        <div class="nav-section">
+            <div class="nav-section-title" data-i18n="navItinerary">行程</div>
+            <a class="nav-link" onclick="scrollToSection('day1')"><span>D1</span>3月12日（四）<br><small style="opacity:0.6">抵达重庆</small></a>
+            <a class="nav-link" onclick="scrollToSection('day2')"><span>D2</span>3月13日（五）<br><small style="opacity:0.6">重庆上半日</small></a>
+            <a class="nav-link" onclick="scrollToSection('day3')"><span>D3</span>3月14日（六）<br><small style="opacity:0.6">重庆下半日+无人机</small></a>
+            <a class="nav-link" onclick="scrollToSection('day4')"><span>D4</span>3月15日（日）<br><small style="opacity:0.6">重庆→九寨沟</small></a>
+            <a class="nav-link" onclick="scrollToSection('day5')"><span>D5</span>3月16日（一）<br><small style="opacity:0.6">九寨沟景区</small></a>
+            <a class="nav-link" onclick="scrollToSection('day6')"><span>D6</span>3月17日（二）<br><small style="opacity:0.6">九寨沟→黄龙</small></a>
+            <a class="nav-link" onclick="scrollToSection('day7')"><span>D7</span>3月18日（三）<br><small style="opacity:0.6">返回重庆</small></a>
+            <a class="nav-link" onclick="scrollToSection('day8')"><span>D8</span>3月19日（四）<br><small style="opacity:0.6">涪陵·武隆</small></a>
+            <a class="nav-link" onclick="scrollToSection('day9')"><span>D9</span>3月20日（五）<br><small style="opacity:0.6">大足·夜游</small></a>
+            <a class="nav-link" onclick="scrollToSection('day10')"><span>D10</span>3月21日（六）<br><small style="opacity:0.6">合川返程</small></a>
+        </div>
+        <div class="nav-section">
+            <div class="nav-section-title" data-i18n="navInfo">信息</div>
+            <a class="nav-link" onclick="scrollToSection('hotels')"><span>🏨</span> <span data-i18n="hotels">酒店信息</span></a>
+            <a class="nav-link" onclick="scrollToSection('notices')"><span>⚠️</span> <span data-i18n="notices">注意事项</span></a>
+            <a class="nav-link" onclick="scrollToSection('packing')"><span>🎒</span> <span data-i18n="packingList">出行清单</span></a>
         </div>
     </div>
     
@@ -445,7 +488,9 @@
                 oxygenTank: '氧气罐/氧气袋', rhodiola: '红景天（预防高原反应）',
                 generalItems: '通用物品', sunglasses: '墨镜、帽子', charger: '手机充电器',
                 powerBank: '充电宝', sunscreen: '防晒霜', cash: '少量现金',
-                tipsTitle: '💡 实用贴士'
+                tipsTitle: '💡 实用贴士',
+                // Navigation
+                quickNav: '快速导航', navItinerary: '行程', navInfo: '信息'
             },
             en: {
                 // Header
@@ -513,7 +558,9 @@
                 oxygenTank: 'Oxygen tank/bag', rhodiola: 'Rhodiola (prevent altitude sickness)',
                 generalItems: 'General Items', sunglasses: 'Sunglasses & hat', charger: 'Phone charger',
                 powerBank: 'Power bank', sunscreen: 'Sunscreen', cash: 'Some cash',
-                tipsTitle: '💡 Tips'
+                tipsTitle: '💡 Tips',
+                // Navigation
+                quickNav: 'Quick Nav', navItinerary: 'Itinerary', navInfo: 'Info'
             }
         };
         
@@ -660,11 +707,44 @@
         
         // ESC 关闭
         document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') closeModal();
+            if (e.key === 'Escape') {
+                closeModal();
+                closeNav();
+            }
         });
         
         // 页面加载时应用保存的语言
         applyLanguage();
+        
+        // 导航功能
+        function toggleNav() {
+            const btn = document.getElementById('navBtn');
+            const menu = document.getElementById('navMenu');
+            btn.classList.toggle('active');
+            menu.classList.toggle('active');
+        }
+        
+        function closeNav() {
+            document.getElementById('navBtn').classList.remove('active');
+            document.getElementById('navMenu').classList.remove('active');
+        }
+        
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                closeNav();
+            }
+        }
+        
+        // 点击外部关闭导航
+        document.addEventListener('click', function(e) {
+            const nav = document.getElementById('navMenu');
+            const btn = document.getElementById('navBtn');
+            if (nav && btn && !nav.contains(e.target) && !btn.contains(e.target)) {
+                closeNav();
+            }
+        });
     </script>
 </body>
 </html>
