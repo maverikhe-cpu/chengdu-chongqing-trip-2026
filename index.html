@@ -31,9 +31,9 @@
         .attractions { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px; }
         .attraction { background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%); padding: 15px; border-radius: 10px; border-left: 4px solid #667eea; cursor: pointer; transition: all 0.3s ease; text-align: left; }
         .attraction:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(102,126,234,0.3); background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%); }
-        .attraction h5 { color: #667eea; font-size: 16px; margin: 0 0 5px 0; text-align: left; }
-        .attraction h5::after { content: '›'; float: right; opacity: 0.5; }
-        .attraction:hover h5::after { opacity: 1; }
+        .attraction h5 { color: #667eea; font-size: 16px; margin: 0 0 5px 0; text-align: left; display: flex; align-items: center; justify-content: space-between; }
+        .attraction h5::after { content: '›'; font-size: 28px; opacity: 0.4; font-weight: 300; transition: all 0.3s; display: inline-block; }
+        .attraction:hover h5::after { opacity: 1; transform: translateX(3px) scale(1.1); color: #667eea; }
         .attraction p { font-size: 13px; color: #666; margin: 0; text-align: left; }
         .checklist { list-style: none; }
         .checklist li { padding: 12px 20px; margin: 10px 0; background: #f9f9f9; border-radius: 8px; }
