@@ -25,11 +25,14 @@
         .timeline-item::before { content: ''; position: absolute; left: -26px; top: 25px; width: 14px; height: 14px; background: #667eea; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 0 0 3px #667eea; }
         .timeline-day { font-size: 14px; color: #667eea; font-weight: 600; margin-bottom: 5px; }
         .timeline-title { font-size: 20px; font-weight: bold; color: #333; margin-bottom: 10px; }
-        .timeline-content { font-size: 15px; color: #666; }
-        .timeline-content table { width: 100%; margin-top: 10px; border-collapse: collapse; }
-        .timeline-content td { padding: 8px 12px; border-bottom: 1px solid #eee; }
+        .timeline-content { font-size: 15px; color: #666; text-align: left; }
+        .timeline-content span { display: block; text-align: left; }
+        .timeline-content table { width: 100%; margin-top: 10px; border-collapse: collapse; text-align: left; }
+        .timeline-content td { padding: 8px 12px; border-bottom: 1px solid #eee; text-align: left; }
         .timeline-content td:first-child { font-weight: 600; color: #667eea; width: 100px; }
         .attractions { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px; }
+        .attraction h5 { text-align: left; }
+        .attraction p { text-align: left; }
         .attraction { background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%); padding: 15px; border-radius: 10px; border-left: 4px solid #667eea; cursor: pointer; transition: all 0.3s ease; }
         .attraction:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(102,126,234,0.3); background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%); }
         .attraction h5 { color: #667eea; font-size: 16px; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between; }
