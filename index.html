@@ -29,14 +29,12 @@
         .timeline-content td { padding: 8px 12px; border-bottom: 1px solid #eee; text-align: left; }
         .timeline-content td:first-child { font-weight: 600; color: #667eea; width: 100px; }
         .attractions { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px; }
-        .attraction { background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%); padding: 15px 15px 35px 15px; border-radius: 10px; border-left: 4px solid #667eea; cursor: pointer; transition: all 0.3s ease; text-align: left; position: relative; }
+        .attraction { background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%); padding: 15px; border-radius: 10px; border-left: 4px solid #667eea; cursor: pointer; transition: all 0.3s ease; text-align: left; }
         .attraction:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(102,126,234,0.3); background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%); }
-        .attraction h5 { color: #667eea; font-size: 16px; margin: 0 0 5px 0; text-align: left; display: flex; align-items: center; justify-content: space-between; }
-        .attraction h5::after { content: '›'; font-size: 28px; opacity: 0.4; font-weight: 300; transition: all 0.3s; display: inline-block; }
+        .attraction h5 { color: #667eea; font-size: 16px; margin: 0 0 5px 0; text-align: left; display: flex; align-items: flex-start; justify-content: space-between; line-height: 1.4; }
+        .attraction h5::after { content: '›'; font-size: 32px; opacity: 0.4; font-weight: 300; transition: all 0.3s; display: inline-block; flex-shrink: 0; margin-left: 8px; }
         .attraction:hover h5::after { opacity: 1; transform: translateX(3px) scale(1.1); color: #667eea; }
-        .attraction p { font-size: 13px; color: #666; margin: 0 0 10px 0; text-align: left; }
-        .attraction::after { content: 'Tap for details →'; position: absolute; bottom: 10px; right: 15px; font-size: 11px; color: #667eea; opacity: 0; transition: all 0.3s; }
-        .attraction:hover::after { opacity: 0.7; transform: translateY(-2px); }
+        .attraction p { font-size: 13px; color: #666; margin: 0; text-align: left; line-height: 1.4; }
         .checklist { list-style: none; }
         .checklist li { padding: 12px 20px; margin: 10px 0; background: #f9f9f9; border-radius: 8px; }
         .checklist li::before { content: '☐'; margin-right: 12px; font-size: 18px; }
