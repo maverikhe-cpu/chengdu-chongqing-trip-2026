@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>川渝之旅 2026 - 成都重庆九寨沟10日游</title>
+    <title>川渝之旅 2026 - Chengdu Chongqing Jiuzhaigou Trip</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif; line-height: 1.8; color: #333; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
         .container { max-width: 900px; margin: 0 auto; background: #fff; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); overflow: hidden; }
-        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 60px 40px; text-align: center; }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 60px 40px; text-align: center; position: relative; }
         .header h1 { font-size: 48px; margin-bottom: 10px; }
         .header .subtitle { font-size: 24px; opacity: 0.9; }
         .header .meta { margin-top: 20px; font-size: 18px; opacity: 0.85; }
+        .lang-switch { position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.5); color: white; padding: 8px 16px; border-radius: 20px; cursor: pointer; font-size: 14px; font-weight: 600; transition: all 0.3s; }
+        .lang-switch:hover { background: rgba(255,255,255,0.3); transform: scale(1.05); }
         .section { padding: 40px; border-bottom: 1px solid #eee; }
         .section:last-child { border-bottom: none; }
         .section h2 { font-size: 28px; color: #667eea; margin-bottom: 25px; padding-bottom: 10px; border-bottom: 3px solid #667eea; display: inline-block; }
@@ -34,8 +36,6 @@
         .attraction h5::after { content: '›'; font-size: 20px; opacity: 0.5; }
         .attraction:hover h5::after { opacity: 1; transform: translateX(3px); }
         .attraction p { font-size: 13px; color: #666; }
-        .attraction .highlight { color: #e74c3c; font-weight: 600; }
-        .attraction .star { color: #f39c12; }
         .checklist { list-style: none; }
         .checklist li { padding: 12px 20px; margin: 10px 0; background: #f9f9f9; border-radius: 8px; }
         .checklist li::before { content: '☐'; margin-right: 12px; font-size: 18px; }
@@ -72,288 +72,290 @@
             .timeline { padding-left: 20px; }
             .attractions { grid-template-columns: 1fr; }
             .modal { margin: 10px; border-radius: 15px; }
+            .lang-switch { top: 10px; right: 10px; padding: 6px 12px; font-size: 12px; }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>🏔️ 川渝之旅 2026</h1>
-            <div class="subtitle">成都·重庆·九寨沟 10日游</div>
-            <div class="meta">📅 2026年3月12日 - 3月21日 | ⏱️ 10天9晚</div>
+            <button class="lang-switch" onclick="switchLang()" id="langBtn">EN</button>
+            <h1 data-i18n="title">🏔️ 川渝之旅 2026</h1>
+            <div class="subtitle" data-i18n="subtitle">成都·重庆·九寨沟 10日游</div>
+            <div class="meta">📅 2026年3月12日 - 3月21日 | ⏱️ <span data-i18n="days">10天9晚</span></div>
         </div>
         
         <div class="section">
-            <h2>📋 行程概览</h2>
-            <p style="color: #999; font-size: 13px; margin-bottom: 15px;">💡 点击景点查看详细介绍</p>
+            <h2 data-i18n="itinerary">📋 行程概览</h2>
+            <p style="color: #999; font-size: 13px; margin-bottom: 15px;" data-i18n="clickHint">💡 点击景点查看详细介绍</p>
             <div class="timeline">
                 <div class="timeline-item">
-                    <div class="timeline-day">Day 1 | 3月12日（四）</div>
-                    <div class="timeline-title">🌅 抵达重庆</div>
+                    <div class="timeline-day" data-i18n="day1">Day 1 | 3月12日（四）</div>
+                    <div class="timeline-title" data-i18n="day1Title">🌅 抵达重庆</div>
                     <div class="timeline-content">
-                        抵达重庆江北机场 → 入住福朋喜来登 → 解放碑商圈逛吃
+                        <span data-i18n="day1Desc">抵达重庆江北机场 → 入住福朋喜来登 → 解放碑商圈逛吃</span>
                         <div class="attractions" style="margin-top: 15px;">
                             <div class="attraction" onclick="showModal('jieFangBei')">
-                                <h5>🏙️ 解放碑</h5>
-                                <p>重庆地标</p>
+                                <h5>🏙️ <span data-i18n="spot_jieFangBei">解放碑</span></h5>
+                                <p data-i18n="spot_jieFangBei_desc">重庆地标</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="timeline-item">
-                    <div class="timeline-day">Day 2 | 3月13日（五）</div>
-                    <div class="timeline-title">🌆 重庆深度游 - 上半日</div>
+                    <div class="timeline-day" data-i18n="day2">Day 2 | 3月13日（五）</div>
+                    <div class="timeline-title" data-i18n="day2Title">🌆 重庆深度游 - 上半日</div>
                     <div class="timeline-content">
                         <div class="attractions">
                             <div class="attraction" onclick="showModal('shanChengBuDao')">
-                                <h5>🚶 山城步道</h5>
-                                <p>10分钟</p>
+                                <h5>🚶 <span data-i18n="spot_shanChengBuDao">山城步道</span></h5>
+                                <p data-i18n="time10min">10分钟</p>
                             </div>
                             <div class="attraction" onclick="showModal('shiBaTi')">
-                                <h5>🪜 十八梯</h5>
-                                <p>午餐</p>
+                                <h5>🪜 <span data-i18n="spot_shiBaTi">十八梯</span></h5>
+                                <p data-i18n="lunch">午餐</p>
                             </div>
                             <div class="attraction" onclick="showModal('jieFangBei')">
-                                <h5>🏙️ 解放碑</h5>
-                                <p>2分钟</p>
+                                <h5>🏙️ <span data-i18n="spot_jieFangBei">解放碑</span></h5>
+                                <p data-i18n="time2min">2分钟</p>
                             </div>
                             <div class="attraction" onclick="showModal('hongYaDong')">
-                                <h5>🌃 洪崖洞</h5>
-                                <p>夜景必去</p>
+                                <h5>🌃 <span data-i18n="spot_hongYaDong">洪崖洞</span></h5>
+                                <p data-i18n="mustSeeNight">夜景必去</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="timeline-item">
-                    <div class="timeline-day">Day 3 | 3月14日（六）</div>
-                    <div class="timeline-title">🎯 重庆深度游 - 下半日 + ⭐无人机表演</div>
+                    <div class="timeline-day" data-i18n="day3">Day 3 | 3月14日（六）</div>
+                    <div class="timeline-title" data-i18n="day3Title">🎯 重庆深度游 - 下半日 + ⭐无人机表演</div>
                     <div class="timeline-content">
                         <div class="attractions">
                             <div class="attraction" onclick="showModal('liZiBa')">
-                                <h5>🚝 李子坝</h5>
-                                <p>轻轨穿楼</p>
+                                <h5>🚝 <span data-i18n="spot_liZiBa">李子坝</span></h5>
+                                <p data-i18n="trainThroughBuilding">轻轨穿楼</p>
                             </div>
                             <div class="attraction" onclick="showModal('renMinDaLiTang')">
-                                <h5>🏛️ 人民大礼堂</h5>
-                                <p>标志性建筑</p>
+                                <h5>🏛️ <span data-i18n="spot_renMinDaLiTang">人民大礼堂</span></h5>
+                                <p data-i18n="iconicBuilding">标志性建筑</p>
                             </div>
                             <div class="attraction" onclick="showModal('guanYinQiao')">
-                                <h5>🍜 观音桥</h5>
-                                <p>美食街</p>
+                                <h5>🍜 <span data-i18n="spot_guanYinQiao">观音桥</span></h5>
+                                <p data-i18n="foodStreet">美食街</p>
                             </div>
                         </div>
                         <br>
                         <div class="attraction" style="border-left-color: #f39c12; background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 20%);" onclick="showModal('wuRenJi')">
-                            <h5>⭐ 无人机表演 20:30（周六限定）</h5>
-                            <p>📍 长嘉汇购物公园观景台</p>
+                            <h5>⭐ <span data-i18n="droneShow">无人机表演</span> 20:30 (<span data-i18n="satOnly">周六限定</span>)</h5>
+                            <p>📍 <span data-i18n="droneLocation">长嘉汇购物公园观景台</span></p>
                         </div>
                     </div>
                 </div>
                 
                 <div class="timeline-item">
-                    <div class="timeline-day">Day 4 | 3月15日（日）</div>
-                    <div class="timeline-title">🏔️ 重庆 → 九寨沟</div>
+                    <div class="timeline-day" data-i18n="day4">Day 4 | 3月15日（日）</div>
+                    <div class="timeline-title" data-i18n="day4Title">🏔️ 重庆 → 九寨沟</div>
                     <div class="timeline-content">
                         <table>
-                            <tr><td>🚗 出发</td><td>09:30 酒店</td></tr>
-                            <tr><td>🍚 午餐</td><td>12:00 途中（江油/平武）</td></tr>
-                            <tr><td>🏨 抵达</td><td>17:30 九寨沟</td></tr>
-                            <tr><td>🚗 车程</td><td>610km，约8小时</td></tr>
+                            <tr><td>🚗 <span data-i18n="depart">出发</span></td><td>09:30 <span data-i18n="hotel">酒店</span></td></tr>
+                            <tr><td>🍚 <span data-i18n="lunch">午餐</span></td><td>12:00 <span data-i18n="enRoute">途中</span>（江油/平武）</td></tr>
+                            <tr><td>🏨 <span data-i18n="arrive">抵达</span></td><td>17:30 <span data-i18n="jiuzhaigou">九寨沟</span></td></tr>
+                            <tr><td>🚗 <span data-i18n="driveTime">车程</span></td><td>610km，<span data-i18n="about8h">约8小时</span></td></tr>
                         </table>
                     </div>
                 </div>
                 
                 <div class="timeline-item">
-                    <div class="timeline-day">Day 5 | 3月16日（一）</div>
-                    <div class="timeline-title">🏞️ 九寨沟景区</div>
+                    <div class="timeline-day" data-i18n="day5">Day 5 | 3月16日（一）</div>
+                    <div class="timeline-title" data-i18n="day5Title">🏞️ 九寨沟景区</div>
                     <div class="timeline-content">
                         <div class="attractions">
                             <div class="attraction" onclick="showModal('jiuZhaiGou')">
-                                <h5>🏞️ 九寨沟</h5>
-                                <p>人间仙境</p>
+                                <h5>🏞️ <span data-i18n="spot_jiuZhaiGou">九寨沟</span></h5>
+                                <p data-i18n="fairyland">人间仙境</p>
                             </div>
                         </div>
-                        ✅ 已含VIP观光车、导游
+                        ✅ <span data-i18n="includedVIP">已含VIP观光车、导游</span>
                     </div>
                 </div>
                 
                 <div class="timeline-item">
-                    <div class="timeline-day">Day 6 | 3月17日（二）</div>
-                    <div class="timeline-title">🌊 九寨沟 → 黄龙 → 九寨沟</div>
+                    <div class="timeline-day" data-i18n="day6">Day 6 | 3月17日（二）</div>
+                    <div class="timeline-title" data-i18n="day6Title">🌊 九寨沟 → 黄龙 → 九寨沟</div>
                     <div class="timeline-content">
                         <div class="attractions">
                             <div class="attraction" onclick="showModal('huangLong')">
-                                <h5>🌊 黄龙</h5>
-                                <p>高原彩色仙境</p>
+                                <h5>🌊 <span data-i18n="spot_huangLong">黄龙</span></h5>
+                                <p data-i18n="colorfulPools">高原彩色仙境</p>
                             </div>
                         </div>
                         <table>
-                            <tr><td>🚗 车程</td><td>110km×2，约5小时</td></tr>
-                            <tr><td>⚠️ 注意</td><td>黄龙海拔3000+，防高原反应</td></tr>
+                            <tr><td>🚗 <span data-i18n="driveTime">车程</span></td><td>110km×2，<span data-i18n="about5h">约5小时</span></td></tr>
+                            <tr><td>⚠️ <span data-i18n="note">注意</span></td><td><span data-i18n="altitude3000">黄龙海拔3000+，防高原反应</span></td></tr>
                         </table>
                     </div>
                 </div>
                 
                 <div class="timeline-item">
-                    <div class="timeline-day">Day 7 | 3月18日（三）</div>
-                    <div class="timeline-title">🔙 九寨沟 → 平武 → 重庆</div>
+                    <div class="timeline-day" data-i18n="day7">Day 7 | 3月18日（三）</div>
+                    <div class="timeline-title" data-i18n="day7Title">🔙 九寨沟 → 平武 → 重庆</div>
                     <div class="timeline-content">
-                        游览平武报恩寺，返回重庆
-                        <br>🚗 车程：约8小时
+                        <span data-i18n="day7Desc">游览平武报恩寺，返回重庆</span>
+                        <br>🚗 <span data-i18n="driveTime">车程</span>：<span data-i18n="about8h">约8小时</span>
                     </div>
                 </div>
                 
                 <div class="timeline-item">
-                    <div class="timeline-day">Day 8 | 3月19日（四）</div>
-                    <div class="timeline-title">🌄 涪陵 · 武隆</div>
+                    <div class="timeline-day" data-i18n="day8">Day 8 | 3月19日（四）</div>
+                    <div class="timeline-title" data-i18n="day8Title">🌄 涪陵 · 武隆</div>
                     <div class="timeline-content">
                         <div class="attractions">
                             <div class="attraction" onclick="showModal('tianShengSanQiao')">
-                                <h5>🌉 武隆天生三桥</h5>
-                                <p>电影取景地</p>
+                                <h5>🌉 <span data-i18n="spot_tianShengSanQiao">武隆天生三桥</span></h5>
+                                <p data-i18n="movieLocation">电影取景地</p>
                             </div>
                         </div>
-                        ✅ 已含门票、交通、导游
+                        ✅ <span data-i18n="included">已含门票、交通、导游</span>
                     </div>
                 </div>
                 
                 <div class="timeline-item">
-                    <div class="timeline-day">Day 9 | 3月20日（五）</div>
-                    <div class="timeline-title">🌃 大足石刻 · 两江夜游</div>
+                    <div class="timeline-day" data-i18n="day9">Day 9 | 3月20日（五）</div>
+                    <div class="timeline-title" data-i18n="day9Title">🌃 大足石刻 · 两江夜游</div>
                     <div class="timeline-content">
                         <div class="attractions">
                             <div class="attraction" onclick="showModal('daZuShiKe')">
-                                <h5>🗿 大足石刻</h5>
-                                <p>世界文化遗产</p>
+                                <h5>🗿 <span data-i18n="spot_daZuShiKe">大足石刻</span></h5>
+                                <p data-i18n="unesco">世界文化遗产</p>
                             </div>
                             <div class="attraction" onclick="showModal('liangJiangYeYou')">
-                                <h5>🛥️ 两江夜游</h5>
-                                <p>重庆夜景</p>
+                                <h5>🛥️ <span data-i18n="spot_liangJiangYeYou">两江夜游</span></h5>
+                                <p data-i18n="nightView">重庆夜景</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="timeline-item">
-                    <div class="timeline-day">Day 10 | 3月21日（六）</div>
-                    <div class="timeline-title">👋 合川 → 返程</div>
+                    <div class="timeline-day" data-i18n="day10">Day 10 | 3月21日（六）</div>
+                    <div class="timeline-title" data-i18n="day10Title">👋 合川 → 返程</div>
                     <div class="timeline-content">
                         <div class="attractions">
                             <div class="attraction" onclick="showModal('diaoYuCheng')">
-                                <h5>🏯 合川钓鱼城</h5>
-                                <p>上帝折鞭之处</p>
+                                <h5>🏯 <span data-i18n="spot_diaoYuCheng">合川钓鱼城</span></h5>
+                                <p data-i18n="godWhip">上帝折鞭之处</p>
                             </div>
                         </div>
-                        ✈️ 返程航班：CX929 17:20 重庆→香港
+                        ✈️ <span data-i18n="returnFlight">返程航班</span>：CX929 17:20 <span data-i18n="cqToHk">重庆→香港</span>
                     </div>
                 </div>
             </div>
         </div>
         
         <div class="section">
-            <h2>🏨 酒店信息</h2>
+            <h2 data-i18n="hotels">🏨 酒店信息</h2>
             <div class="hotel-card">
-                <h4>🏨 重庆福朋喜来登酒店</h4>
+                <h4>🏨 <span data-i18n="hotel1Name">重庆福朋喜来登酒店</span></h4>
                 <div class="hotel-info">
-                    <div><span class="emoji">📍</span> 渝中区邹容路82号（解放碑商圈）</div>
-                    <div><span class="emoji">🛏️</span> 高级双床房</div>
-                    <div><span class="emoji">📅</span> 3月12-15日、3月18-20日（共6晚）</div>
+                    <div><span class="emoji">📍</span> <span data-i18n="hotel1Addr">渝中区邹容路82号（解放碑商圈）</span></div>
+                    <div><span class="emoji">🛏️</span> <span data-i18n="twinRoom">高级双床房</span></div>
+                    <div><span class="emoji">📅</span> <span data-i18n="hotel1Dates">3月12-15日、3月18-20日（共6晚）</span></div>
                 </div>
             </div>
             <div class="hotel-card">
-                <h4>🏨 九寨沟英迪格酒店</h4>
+                <h4>🏨 <span data-i18n="hotel2Name">九寨沟英迪格酒店</span></h4>
                 <div class="hotel-info">
-                    <div><span class="emoji">📍</span> 九寨沟景区附近</div>
-                    <div><span class="emoji">🛏️</span> 八人共五间</div>
-                    <div><span class="emoji">📅</span> 3月15-18日（共3晚）</div>
+                    <div><span class="emoji">📍</span> <span data-i18n="hotel2Addr">九寨沟景区附近</span></div>
+                    <div><span class="emoji">🛏️</span> <span data-i18n="hotel2Room">八人共五间</span></div>
+                    <div><span class="emoji">📅</span> <span data-i18n="hotel2Dates">3月15-18日（共3晚）</span></div>
                 </div>
             </div>
         </div>
         
         <div class="section">
-            <h2>⚠️ 注意事项</h2>
+            <h2 data-i18n="notices">⚠️ 注意事项</h2>
             <div class="warning">
-                <h4>🚨 高原反应</h4>
-                <p>九寨沟、黄龙海拔2000-3100米，建议：</p>
+                <h4>🚨 <span data-i18n="altitudeSickness">高原反应</span></h4>
+                <p><span data-i18n="altitudeDesc">九寨沟、黄龙海拔2000-3100米，建议：</span></p>
                 <ul style="margin: 10px 0 0 20px;">
-                    <li>提前服用红景天</li>
-                    <li>携带氧气罐/氧气袋</li>
-                    <li>避免剧烈运动</li>
-                    <li>注意保暖</li>
+                    <li data-i18n="altitudeTip1">提前服用红景天</li>
+                    <li data-i18n="altitudeTip2">携带氧气罐/氧气袋</li>
+                    <li data-i18n="altitudeTip3">避免剧烈运动</li>
+                    <li data-i18n="altitudeTip4">注意保暖</li>
                 </ul>
             </div>
-            <h3>🌡️ 天气预报（3月12-17日）</h3>
-            <h4 style="color: #667eea; margin: 15px 0 10px;">🌆 重庆</h4>
+            <h3 data-i18n="weatherForecast">🌡️ 天气预报（3月12-17日）</h3>
+            <h4 style="color: #667eea; margin: 15px 0 10px;">🌆 <span data-i18n="chongqing">重庆</span></h4>
             <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
                 <tr style="background: #f9f9f9;">
-                    <th style="padding: 10px; border: 1px solid #eee;">日期</th>
-                    <th style="padding: 10px; border: 1px solid #eee;">最高温</th>
-                    <th style="padding: 10px; border: 1px solid #eee;">最低温</th>
-                    <th style="padding: 10px; border: 1px solid #eee;">天气</th>
+                    <th style="padding: 10px; border: 1px solid #eee;" data-i18n="date">日期</th>
+                    <th style="padding: 10px; border: 1px solid #eee;" data-i18n="highTemp">最高温</th>
+                    <th style="padding: 10px; border: 1px solid #eee;" data-i18n="lowTemp">最低温</th>
+                    <th style="padding: 10px; border: 1px solid #eee;" data-i18n="weather">天气</th>
                 </tr>
-                <tr><td style="padding: 8px; border: 1px solid #eee;">3/12 (四)</td><td style="padding: 8px; border: 1px solid #eee;">19°C</td><td style="padding: 8px; border: 1px solid #eee;">16°C</td><td style="padding: 8px; border: 1px solid #eee;">🌧️ 小雨</td></tr>
-                <tr><td style="padding: 8px; border: 1px solid #eee;">3/13 (五)</td><td style="padding: 8px; border: 1px solid #eee;">21°C</td><td style="padding: 8px; border: 1px solid #eee;">15°C</td><td style="padding: 8px; border: 1px solid #eee;">☁️ 多云</td></tr>
-                <tr><td style="padding: 8px; border: 1px solid #eee;">3/14 (六)</td><td style="padding: 8px; border: 1px solid #eee;">19°C</td><td style="padding: 8px; border: 1px solid #eee;">16°C</td><td style="padding: 8px; border: 1px solid #eee;">🌧️ 毛毛雨</td></tr>
-                <tr><td style="padding: 8px; border: 1px solid #eee;">3/15 (日)</td><td style="padding: 8px; border: 1px solid #eee;">17°C</td><td style="padding: 8px; border: 1px solid #eee;">15°C</td><td style="padding: 8px; border: 1px solid #eee;">🌧️ 毛毛雨</td></tr>
-                <tr><td style="padding: 8px; border: 1px solid #eee;">3/16 (一)</td><td style="padding: 8px; border: 1px solid #eee;">16°C</td><td style="padding: 8px; border: 1px solid #eee;">15°C</td><td style="padding: 8px; border: 1px solid #eee;">🌧️ 小雨</td></tr>
-                <tr><td style="padding: 8px; border: 1px solid #eee;">3/17 (二)</td><td style="padding: 8px; border: 1px solid #eee;">16°C</td><td style="padding: 8px; border: 1px solid #eee;">13°C</td><td style="padding: 8px; border: 1px solid #eee;">🌫️ 毛毛雨</td></tr>
+                <tr><td style="padding: 8px; border: 1px solid #eee;">3/12 (四)</td><td style="padding: 8px; border: 1px solid #eee;">19°C</td><td style="padding: 8px; border: 1px solid #eee;">16°C</td><td style="padding: 8px; border: 1px solid #eee;">🌧️ <span data-i18n="lightRain">小雨</span></td></tr>
+                <tr><td style="padding: 8px; border: 1px solid #eee;">3/13 (五)</td><td style="padding: 8px; border: 1px solid #eee;">21°C</td><td style="padding: 8px; border: 1px solid #eee;">15°C</td><td style="padding: 8px; border: 1px solid #eee;">☁️ <span data-i18n="cloudy">多云</span></td></tr>
+                <tr><td style="padding: 8px; border: 1px solid #eee;">3/14 (六)</td><td style="padding: 8px; border: 1px solid #eee;">19°C</td><td style="padding: 8px; border: 1px solid #eee;">16°C</td><td style="padding: 8px; border: 1px solid #eee;">🌧️ <span data-i18n="drizzle">毛毛雨</span></td></tr>
+                <tr><td style="padding: 8px; border: 1px solid #eee;">3/15 (日)</td><td style="padding: 8px; border: 1px solid #eee;">17°C</td><td style="padding: 8px; border: 1px solid #eee;">15°C</td><td style="padding: 8px; border: 1px solid #eee;">🌧️ <span data-i18n="drizzle">毛毛雨</span></td></tr>
+                <tr><td style="padding: 8px; border: 1px solid #eee;">3/16 (一)</td><td style="padding: 8px; border: 1px solid #eee;">16°C</td><td style="padding: 8px; border: 1px solid #eee;">15°C</td><td style="padding: 8px; border: 1px solid #eee;">🌧️ <span data-i18n="lightRain">小雨</span></td></tr>
+                <tr><td style="padding: 8px; border: 1px solid #eee;">3/17 (二)</td><td style="padding: 8px; border: 1px solid #eee;">16°C</td><td style="padding: 8px; border: 1px solid #eee;">13°C</td><td style="padding: 8px; border: 1px solid #eee;">🌫️ <span data-i18n="drizzle">毛毛雨</span></td></tr>
             </table>
-            <p style="margin-bottom: 15px;"><b>重庆特点：</b>温暖潮湿（15-21°C），几乎每天有雨，记得带伞和防水外套！</p>
+            <p style="margin-bottom: 15px;"><b><span data-i18n="cqWeatherNote">重庆特点：温暖潮湿（15-21°C），几乎每天有雨，记得带伞和防水外套！</span></b></p>
             
-            <h4 style="color: #764ba2; margin: 15px 0 10px;">🏔️ 九寨沟</h4>
+            <h4 style="color: #764ba2; margin: 15px 0 10px;">🏔️ <span data-i18n="jiuzhaigou">九寨沟</span></h4>
             <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
                 <tr style="background: #f9f9f9;">
-                    <th style="padding: 10px; border: 1px solid #eee;">日期</th>
-                    <th style="padding: 10px; border: 1px solid #eee;">最高温</th>
-                    <th style="padding: 10px; border: 1px solid #eee;">最低温</th>
-                    <th style="padding: 10px; border: 1px solid #eee;">天气</th>
+                    <th style="padding: 10px; border: 1px solid #eee;" data-i18n="date">日期</th>
+                    <th style="padding: 10px; border: 1px solid #eee;" data-i18n="highTemp">最高温</th>
+                    <th style="padding: 10px; border: 1px solid #eee;" data-i18n="lowTemp">最低温</th>
+                    <th style="padding: 10px; border: 1px solid #eee;" data-i18n="weather">天气</th>
                 </tr>
-                <tr><td style="padding: 8px; border: 1px solid #eee;">3/12 (四)</td><td style="padding: 8px; border: 1px solid #eee;">15°C</td><td style="padding: 8px; border: 1px solid #eee;">0°C</td><td style="padding: 8px; border: 1px solid #eee;">🌧️ 小雨</td></tr>
-                <tr><td style="padding: 8px; border: 1px solid #eee;">3/13 (五)</td><td style="padding: 8px; border: 1px solid #eee;">9°C</td><td style="padding: 8px; border: 1px solid #eee;">6°C</td><td style="padding: 8px; border: 1px solid #eee;">🌨️ 小雪</td></tr>
-                <tr><td style="padding: 8px; border: 1px solid #eee;">3/14 (六)</td><td style="padding: 8px; border: 1px solid #eee;">15°C</td><td style="padding: 8px; border: 1px solid #eee;">2°C</td><td style="padding: 8px; border: 1px solid #eee;">🌧️ 小雨</td></tr>
-                <tr><td style="padding: 8px; border: 1px solid #eee;">3/15 (日)</td><td style="padding: 8px; border: 1px solid #eee;">15°C</td><td style="padding: 8px; border: 1px solid #eee;">3°C</td><td style="padding: 8px; border: 1px solid #eee;">🌫️ 雾</td></tr>
-                <tr><td style="padding: 8px; border: 1px solid #eee;">3/16 (一)</td><td style="padding: 8px; border: 1px solid #eee;">11°C</td><td style="padding: 8px; border: 1px solid #eee;">5°C</td><td style="padding: 8px; border: 1px solid #eee;">🌨️ 小雪</td></tr>
-                <tr><td style="padding: 8px; border: 1px solid #eee;">3/17 (二)</td><td style="padding: 8px; border: 1px solid #eee;">10°C</td><td style="padding: 8px; border: 1px solid #eee;">-1°C</td><td style="padding: 8px; border: 1px solid #eee;">🌨️ 中雪</td></tr>
+                <tr><td style="padding: 8px; border: 1px solid #eee;">3/12 (四)</td><td style="padding: 8px; border: 1px solid #eee;">15°C</td><td style="padding: 8px; border: 1px solid #eee;">0°C</td><td style="padding: 8px; border: 1px solid #eee;">🌧️ <span data-i18n="lightRain">小雨</span></td></tr>
+                <tr><td style="padding: 8px; border: 1px solid #eee;">3/13 (五)</td><td style="padding: 8px; border: 1px solid #eee;">9°C</td><td style="padding: 8px; border: 1px solid #eee;">6°C</td><td style="padding: 8px; border: 1px solid #eee;">🌨️ <span data-i18n="lightSnow">小雪</span></td></tr>
+                <tr><td style="padding: 8px; border: 1px solid #eee;">3/14 (六)</td><td style="padding: 8px; border: 1px solid #eee;">15°C</td><td style="padding: 8px; border: 1px solid #eee;">2°C</td><td style="padding: 8px; border: 1px solid #eee;">🌧️ <span data-i18n="lightRain">小雨</span></td></tr>
+                <tr><td style="padding: 8px; border: 1px solid #eee;">3/15 (日)</td><td style="padding: 8px; border: 1px solid #eee;">15°C</td><td style="padding: 8px; border: 1px solid #eee;">3°C</td><td style="padding: 8px; border: 1px solid #eee;">🌫️ <span data-i18n="fog">雾</span></td></tr>
+                <tr><td style="padding: 8px; border: 1px solid #eee;">3/16 (一)</td><td style="padding: 8px; border: 1px solid #eee;">11°C</td><td style="padding: 8px; border: 1px solid #eee;">5°C</td><td style="padding: 8px; border: 1px solid #eee;">🌨️ <span data-i18n="lightSnow">小雪</span></td></tr>
+                <tr><td style="padding: 8px; border: 1px solid #eee;">3/17 (二)</td><td style="padding: 8px; border: 1px solid #eee;">10°C</td><td style="padding: 8px; border: 1px solid #eee;">-1°C</td><td style="padding: 8px; border: 1px solid #eee;">🌨️ <span data-i18n="moderateSnow">中雪</span></td></tr>
             </table>
-            <p style="color: #e74c3c; font-weight: 600;"><b>⚠️ 九寨沟特点：高原海拔（2335米），昼夜温差大，早晚接近零度，一定要带厚衣服！可能下雪，但雪景会很美 ❄️</b></p>
-            <h3>💰 支付</h3>
-            <p>支持微信、支付宝，建议备少量现金</p>
+            <p style="color: #e74c3c; font-weight: 600;"><b>⚠️ <span data-i18n="jzgWeatherNote">九寨沟特点：高原海拔（2335米），昼夜温差大，早晚接近零度，一定要带厚衣服！可能下雪，但雪景会很美 ❄️</span></b></p>
+            <h3 data-i18n="payment">💰 支付</h3>
+            <p data-i18n="paymentNote">支持微信、支付宝，建议备少量现金</p>
         </div>
         
         <div class="section">
-            <h2>🎒 出行清单</h2>
-            <h3 style="color: #667eea; margin-bottom: 15px;">重庆必备</h3>
+            <h2 data-i18n="packingList">🎒 出行清单</h2>
+            <h3 style="color: #667eea; margin-bottom: 15px;" data-i18n="cqEssentials">重庆必备</h3>
             <ul class="checklist">
-                <li>身份证/护照</li>
-                <li>薄外套 + 长袖（15-21°C）</li>
-                <li>雨伞/雨衣（几乎每天有雨）</li>
-                <li>防水鞋/防滑鞋</li>
-                <li>舒适运动鞋（重庆多坡道）</li>
+                <li data-i18n="idPassport">身份证/护照</li>
+                <li data-i18n="thinJacket">薄外套 + 长袖（15-21°C）</li>
+                <li data-i18n="umbrella">雨伞/雨衣（几乎每天有雨）</li>
+                <li data-i18n="waterproofShoes">防水鞋/防滑鞋</li>
+                <li data-i18n="comfyShoes">舒适运动鞋（重庆多坡道）</li>
             </ul>
-            <h3 style="color: #764ba2; margin: 20px 0 15px;">九寨沟必备</h3>
+            <h3 style="color: #764ba2; margin: 20px 0 15px;" data-i18n="jzgEssentials">九寨沟必备</h3>
             <ul class="checklist">
-                <li><b style="color: #e74c3c;">羽绒服/冲锋衣</b>（早晚接近0°C）</li>
-                <li><b style="color: #e74c3c;">保暖内衣</b></li>
-                <li><b style="color: #e74c3c;">帽子 + 手套</b></li>
-                <li>防滑鞋（可能有雪）</li>
-                <li>氧气罐/氧气袋</li>
-                <li>红景天（预防高原反应）</li>
+                <li><b style="color: #e74c3c;" data-i18n="downJacket">羽绒服/冲锋衣（早晚接近0°C）</b></li>
+                <li><b style="color: #e74c3c;" data-i18n="thermalUnderwear">保暖内衣</b></li>
+                <li><b style="color: #e74c3c;" data-i18n="hatGloves">帽子 + 手套</b></li>
+                <li data-i18n="nonSlipShoes">防滑鞋（可能有雪）</li>
+                <li data-i18n="oxygenTank">氧气罐/氧气袋</li>
+                <li data-i18n="rhodiola">红景天（预防高原反应）</li>
             </ul>
-            <h3 style="margin: 20px 0 15px;">通用物品</h3>
+            <h3 style="margin: 20px 0 15px;" data-i18n="generalItems">通用物品</h3>
             <ul class="checklist">
-                <li>墨镜、帽子</li>
-                <li>手机充电器</li>
-                <li>充电宝</li>
-                <li>防晒霜</li>
-                <li>少量现金</li>
+                <li data-i18n="sunglasses">墨镜、帽子</li>
+                <li data-i18n="charger">手机充电器</li>
+                <li data-i18n="powerBank">充电宝</li>
+                <li data-i18n="sunscreen">防晒霜</li>
+                <li data-i18n="cash">少量现金</li>
             </ul>
         </div>
         
         <div class="footer">
-            <p>祝旅途愉快！🧡</p>
-            <p><small>Powered by Marble AI | 交互式路书：2026年3月2日</small></p>
+            <p data-i18n="happyTrip">祝旅途愉快！🧡</p>
+            <p><small data-i18n="footer">Powered by Marble AI | 交互式路书：2026年3月2日</small></p>
         </div>
     </div>
     
@@ -368,7 +370,7 @@
             <div class="modal-body">
                 <p id="modalDesc">景点介绍</p>
                 <div class="modal-tips" id="modalTips">
-                    <h4>💡 实用贴士</h4>
+                    <h4 id="modalTipsTitle">💡 实用贴士</h4>
                     <ul id="modalTipsList"></ul>
                 </div>
             </div>
@@ -376,116 +378,182 @@
     </div>
     
     <script>
-        // 景点数据
-        const spots = {
-            hongYaDong: {
-                name: '🌃 洪崖洞',
-                image: 'https://upload.wikimedia.org/wikipedia/commons/6/64/202308_Hongya_Cave_at_night_from_Qiansimen_Bridge.jpg',
-                color: 'linear-gradient(135deg, #ff6b6b 0%, #feca57 100%)',
-                desc: '重庆最火的网红打卡地！11层吊脚楼依山而建，夜景灯光璀璨，仿佛现实版《千与千寻》。这里汇集了巴渝传统建筑、民俗风情、美食餐饮，是重庆必去的地标景点。',
-                tips: ['最佳观赏时间：19:00-22:00', '建议从顶层往下逛', '夜景拍照效果最佳', '人流量大，注意安全']
+        // 多语言翻译
+        const i18n = {
+            zh: {
+                title: '🏔️ 川渝之旅 2026',
+                subtitle: '成都·重庆·九寨沟 10日游',
+                days: '10天9晚',
+                itinerary: '📋 行程概览',
+                clickHint: '💡 点击景点查看详细介绍',
+                hotels: '🏨 酒店信息',
+                notices: '⚠️ 注意事项',
+                packingList: '🎒 出行清单',
+                happyTrip: '祝旅途愉快！🧡',
+                footer: 'Powered by Marble AI | 交互式路书：2026年3月2日',
+                // 景点
+                spot_hongYaDong: '洪崖洞', spot_jieFangBei: '解放碑', spot_liZiBa: '李子坝',
+                spot_shiBaTi: '十八梯', spot_shanChengBuDao: '山城步道', spot_renMinDaLiTang: '人民大礼堂',
+                spot_guanYinQiao: '观音桥', spot_jiuZhaiGou: '九寨沟', spot_huangLong: '黄龙',
+                spot_tianShengSanQiao: '武隆天生三桥', spot_daZuShiKe: '大足石刻',
+                spot_liangJiangYeYou: '两江夜游', spot_diaoYuCheng: '合川钓鱼城',
+                // 景点描述
+                spot_jieFangBei_desc: '重庆地标', mustSeeNight: '夜景必去', trainThroughBuilding: '轻轨穿楼',
+                iconicBuilding: '标志性建筑', foodStreet: '美食街', fairyland: '人间仙境',
+                colorfulPools: '高原彩色仙境', movieLocation: '电影取景地', unesco: '世界文化遗产',
+                nightView: '重庆夜景', godWhip: '上帝折鞭之处',
+                // 其他
+                lunch: '午餐', droneShow: '无人机表演', satOnly: '周六限定',
+                tipsTitle: '💡 实用贴士'
             },
-            jieFangBei: {
-                name: '🏙️ 解放碑',
-                image: 'https://upload.wikimedia.org/wikipedia/commons/4/4a/Jiefangbei_night.jpg',
-                color: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                desc: '重庆的地标建筑，中国唯一纪念抗战胜利的纪念碑。高27.5米，建于1947年。周围是繁华的步行街，汇集了各大商场、餐厅、电影院，是重庆最热闹的商业中心。',
-                tips: ['逛街吃火锅的最佳起点', '附近有很多老字号餐厅', '晚上灯光很美', '可与洪崖洞一起游览']
-            },
-            liZiBa: {
-                name: '🚝 李子坝轻轨',
-                image: 'https://upload.wikimedia.org/wikipedia/commons/a/ae/%E6%9D%8E%E5%AD%90%E5%9D%9D%E7%AB%99%E8%BD%BB%E8%BD%A8%E7%A9%BF%E6%A5%BC_0023.png',
-                color: 'linear-gradient(135deg, #2ecc71 0%, #27ae60 100%)',
-                desc: '重庆8D魔幻交通的代表！轻轨2号线穿楼而过，是全球独一无二的景观。这座住宅楼的6-8层是站台，轻轨列车直接从居民楼中穿过。',
-                tips: ['最佳拍摄点：李子坝公园观景台', '建议乘坐轻轨体验一次', '工作日人少，周末人多', '可与鹅岭公园一起游览']
-            },
-            shiBaTi: {
-                name: '🪜 十八梯',
-                image: 'images/shibati.jpg',
-                color: 'linear-gradient(135deg, #e17055 0%, #d63031 100%)',
-                desc: '老重庆的记忆，电影《从你的全世界路过》取景地。这里保留了重庆传统的石阶老街风貌，两侧是老式民居和小店，烟火气息浓厚。经过改造后焕然一新，但依然保留着重庆的市井味道。',
-                tips: ['从上往下走更轻松', '可品尝地道重庆小吃', '拍照很出片', '可与山城步道串联游览']
-            },
-            shanChengBuDao: {
-                name: '🚶 山城步道',
-                image: 'images/shanchengbudao.jpg',
-                color: 'linear-gradient(135deg, #74b9ff 0%, #0984e3 100%)',
-                desc: '重庆特有的城市步行系统，沿着山势蜿蜒而下。步道串联了多个历史街区和景点，沿途可欣赏老重庆的市井生活和江景风光。是最能感受"山城"特色的地方。',
-                tips: ['全程约30分钟', '穿舒适的鞋子', '沿途有很多茶馆可休息', '建议下午去，光线好']
-            },
-            renMinDaLiTang: {
-                name: '🏛️ 人民大礼堂',
-                image: 'https://upload.wikimedia.org/wikipedia/commons/e/e6/The_People%27s_Great_Hall_of_Chongqing.jpg',
-                color: 'linear-gradient(135deg, #fd79a8 0%, #e84393 100%)',
-                desc: '重庆标志性建筑，仿古民族建筑风格。建于1954年，穹顶跨度亚洲第一，气势恢宏。整座建筑融合了中国传统建筑艺术和现代建筑技术，是重庆的象征之一。',
-                tips: ['对面的三峡博物馆可一起参观', '可购买联票', '广场上有很多鸽子', '适合拍照打卡']
-            },
-            guanYinQiao: {
-                name: '🍜 观音桥',
-                image: 'images/guanyinqiao.jpg',
-                color: 'linear-gradient(135deg, #fdcb6e 0%, #f39c12 100%)',
-                desc: '重庆最繁华的商业区之一，美女如云，美食遍地。北仓文创园就在附近，文艺青年的最爱。晚上九街夜生活超丰富，酒吧、夜市、火锅店通宵营业。',
-                tips: ['晚上九街夜生活超丰富', '北仓文创园适合拍照', '美食街有各种小吃', '建议傍晚到晚上游览']
-            },
-            wuRenJi: {
-                name: '⭐ 无人机表演',
-                image: 'images/wurenji.jpg',
-                color: 'linear-gradient(135deg, #f39c12 0%, #e74c3c 100%)',
-                desc: '重庆每周六晚上的固定表演！5000+无人机同步升空，在夜空中呈现3D立体图案和动态效果，配合音乐和灯光，是重庆最震撼的视觉盛宴。',
-                tips: ['表演时间：每周六 20:30', '最佳观看点：长嘉汇购物公园观景台（4层或6层）', '建议提前30分钟占位', '表演时长约18分钟']
-            },
-            jiuZhaiGou: {
-                name: '🏞️ 九寨沟',
-                image: 'https://upload.wikimedia.org/wikipedia/commons/2/28/1_jiuzhaigou_valley_wu_hua_hai_2011b.jpg',
-                color: 'linear-gradient(135deg, #00b894 0%, #00cec9 100%)',
-                desc: '"九寨归来不看水"！108个高山湖泊，五彩斑斓，被誉为"人间仙境"。是世界自然遗产、世界生物圈保护区。春天的九寨沟，冰雪消融，湖水呈现梦幻般的蓝绿色，美不胜收。',
-                tips: ['建议游玩6-8小时', '带足干粮和水', '穿舒适的鞋子', '早晚温差大，注意保暖', '景区内可乘观光车']
-            },
-            huangLong: {
-                name: '🌊 黄龙',
-                image: 'https://upload.wikimedia.org/wikipedia/commons/6/68/1_huanglong_pools_aerial_2011.jpg',
-                color: 'linear-gradient(135deg, #81ecec 0%, #74b9ff 100%)',
-                desc: '世界自然遗产，以彩池、雪山、峡谷、森林著称。海拔3000+米，高原上的彩色仙境。数千个钙化彩池层层叠叠，在阳光下呈现金色、蓝色、绿色，宛如巨龙盘旋。',
-                tips: ['注意高原反应，缓慢行走', '可乘坐索道上山', '建议游玩4-5小时', '带氧气罐备用', '穿防滑鞋']
-            },
-            tianShengSanQiao: {
-                name: '🌉 武隆天生三桥',
-                image: 'https://upload.wikimedia.org/wikipedia/commons/3/33/Wulongtianshengsanqiao.JPG',
-                color: 'linear-gradient(135deg, #636e72 0%, #2d3436 100%)',
-                desc: '世界自然遗产，《变形金刚4》《满城尽带黄金甲》取景地。三座天然石桥气势磅礴，天龙桥、青龙桥、黑龙桥横跨峡谷，是世界上最大的天生桥群。',
-                tips: ['电影迷必打卡', '可乘电梯下到谷底', '景区内有观光车', '建议游玩3-4小时', '可与仙女山一起游览']
-            },
-            daZuShiKe: {
-                name: '🗿 大足石刻',
-                image: 'https://upload.wikimedia.org/wikipedia/commons/5/53/Dazu_2007_685_full_view.jpg',
-                color: 'linear-gradient(135deg, #b2bec3 0%, #636e72 100%)',
-                desc: '世界文化遗产，中国晚期石窟艺术的代表。始刻于唐朝，历经五代，盛于两宋。5万余尊石刻造像，精美绝伦，其中以宝顶山石刻最为著名，是佛教艺术的瑰宝。',
-                tips: ['建议请导游讲解，更有趣', '主要参观宝顶山石刻', '建议游玩3-4小时', '注意保护文物', '可与昌州古城一起游览']
-            },
-            liangJiangYeYou: {
-                name: '🛥️ 两江夜游',
-                image: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Chaotianmen_Yangtze_River_Bridge1.jpg',
-                color: 'linear-gradient(135deg, #2c3e50 0%, #34495e 100%)',
-                desc: '乘船游览长江和嘉陵江，欣赏重庆璀璨夜景。洪崖洞、千厮门大桥、朝天门码头尽收眼底。重庆夜景与香港维多利亚港、上海外滩并称中国三大夜景。',
-                tips: ['建议选顶层甲板，视野更好', '航程约1小时', '建议晚上7-8点登船', '船上可购买饮料零食', '提前预订船票']
-            },
-            diaoYuCheng: {
-                name: '🏯 合川钓鱼城',
-                image: 'https://upload.wikimedia.org/wikipedia/commons/5/54/Fishingtown.jpg',
-                color: 'linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%)',
-                desc: '改变世界历史的古城！1259年，蒙古大汗蒙哥在此战死，间接导致蒙古西征停止。被称为"上帝折鞭之处"。古城保存完好，城墙、城门、古战场遗址都值得一看。',
-                tips: ['历史爱好者必去', '建议游玩2-3小时', '可请导游讲解历史', '城内有餐厅可用餐', '适合返程前游览']
+            en: {
+                title: '🏔️ Sichuan Trip 2026',
+                subtitle: 'Chengdu · Chongqing · Jiuzhaigou 10 Days',
+                days: '10 Days 9 Nights',
+                itinerary: '📋 Itinerary',
+                clickHint: '💡 Click attractions for details',
+                hotels: '🏨 Hotels',
+                notices: '⚠️ Important Notes',
+                packingList: '🎒 Packing List',
+                happyTrip: 'Have a wonderful trip! 🧡',
+                footer: 'Powered by Marble AI | Interactive Guide: March 2, 2026',
+                // Spots
+                spot_hongYaDong: 'Hongyadong', spot_jieFangBei: 'Jiefangbei', spot_liZiBa: 'Liziba',
+                spot_shiBaTi: 'Shibati', spot_shanChengBuDao: 'Mountain Trail', spot_renMinDaLiTang: 'Great Hall',
+                spot_guanYinQiao: 'Guanyinqiao', spot_jiuZhaiGou: 'Jiuzhaigou', spot_huangLong: 'Huanglong',
+                spot_tianShengSanQiao: 'Three Bridges', spot_daZuShiKe: 'Dazu Rock Carvings',
+                spot_liangJiangYeYou: 'Two Rivers Cruise', spot_diaoYuCheng: 'Fishing Town',
+                // Spot descriptions
+                spot_jieFangBei_desc: 'Chongqing Landmark', mustSeeNight: 'Must-see Night View',
+                trainThroughBuilding: 'Train through Building', iconicBuilding: 'Iconic Building',
+                foodStreet: 'Food Street', fairyland: 'Fairyland', colorfulPools: 'Colorful Pools',
+                movieLocation: 'Movie Location', unesco: 'UNESCO Heritage', nightView: 'Night View',
+                godWhip: 'Where God\'s Whip Broke',
+                // Others
+                lunch: 'Lunch', droneShow: 'Drone Show', satOnly: 'Sat Only',
+                tipsTitle: '💡 Tips'
             }
         };
         
+        // 景点数据
+        const spots = {
+            hongYaDong: {
+                image: 'https://upload.wikimedia.org/wikipedia/commons/6/64/202308_Hongya_Cave_at_night_from_Qiansimen_Bridge.jpg',
+                color: 'linear-gradient(135deg, #ff6b6b 0%, #feca57 100%)',
+                zh: { name: '🌃 洪崖洞', desc: '重庆最火的网红打卡地！11层吊脚楼依山而建，夜景灯光璀璨，仿佛现实版《千与千寻》。', tips: ['最佳观赏时间：19:00-22:00', '建议从顶层往下逛', '夜景拍照效果最佳', '人流量大，注意安全'] },
+                en: { name: '🌃 Hongyadong', desc: 'Chongqing\'s most famous Instagram spot! 11-story stilt houses built into the mountain, with dazzling night lights like "Spirited Away" come to life.', tips: ['Best time: 7-10 PM', 'Start from top floor', 'Best photos at night', 'Crowded, watch your step'] }
+            },
+            jieFangBei: {
+                image: 'https://upload.wikimedia.org/wikipedia/commons/4/4a/Jiefangbei_night.jpg',
+                color: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                zh: { name: '🏙️ 解放碑', desc: '重庆的地标建筑，中国唯一纪念抗战胜利的纪念碑。周围是繁华的步行街，汇集了各大商场、餐厅。', tips: ['逛街吃火锅的最佳起点', '附近有很多老字号餐厅', '晚上灯光很美', '可与洪崖洞一起游览'] },
+                en: { name: '🏙️ Jiefangbei', desc: 'Chongqing\'s landmark monument, the only monument in China commemorating the victory of the Anti-Japanese War. Surrounded by bustling pedestrian streets.', tips: ['Best starting point for shopping', 'Many traditional restaurants nearby', 'Beautiful lights at night', 'Visit with Hongyadong'] }
+            },
+            liZiBa: {
+                image: 'https://upload.wikimedia.org/wikipedia/commons/a/ae/%E6%9D%8E%E5%AD%90%E5%9D%9D%E7%AB%99%E8%BD%BB%E8%BD%A8%E7%A9%BF%E6%A5%BC_0023.png',
+                color: 'linear-gradient(135deg, #2ecc71 0%, #27ae60 100%)',
+                zh: { name: '🚝 李子坝轻轨', desc: '重庆8D魔幻交通的代表！轻轨2号线穿楼而过，是全球独一无二的景观。', tips: ['最佳拍摄点：李子坝公园观景台', '建议乘坐轻轨体验一次', '工作日人少，周末人多', '可与鹅岭公园一起游览'] },
+                en: { name: '🚝 Liziba Monorail', desc: 'The representative of Chongqing\'s 8D magical transportation! Monorail Line 2 passes through a residential building - a unique sight in the world.', tips: ['Best spot: Liziba Park viewpoint', 'Take the monorail yourself', 'Less crowded on weekdays', 'Visit with E\'ling Park'] }
+            },
+            shiBaTi: {
+                image: 'images/shibati.jpg',
+                color: 'linear-gradient(135deg, #e17055 0%, #d63031 100%)',
+                zh: { name: '🪜 十八梯', desc: '老重庆的记忆，电影《从你的全世界路过》取景地。保留了重庆传统的石阶老街风貌。', tips: ['从上往下走更轻松', '可品尝地道重庆小吃', '拍照很出片', '可与山城步道串联游览'] },
+                en: { name: '🪜 Shibati', desc: 'Old Chongqing memories, filming location for "I Belong to You". Preserves traditional stone-step old street charm.', tips: ['Easier to walk downhill', 'Try authentic local snacks', 'Great for photos', 'Combine with Mountain Trail'] }
+            },
+            shanChengBuDao: {
+                image: 'images/shanchengbudao.jpg',
+                color: 'linear-gradient(135deg, #74b9ff 0%, #0984e3 100%)',
+                zh: { name: '🚶 山城步道', desc: '重庆特有的城市步行系统，沿着山势蜿蜒而下。串联了多个历史街区和景点。', tips: ['全程约30分钟', '穿舒适的鞋子', '沿途有很多茶馆可休息', '建议下午去，光线好'] },
+                en: { name: '🚶 Mountain Trail', desc: 'Chongqing\'s unique urban walking system, winding down the mountain. Connects multiple historic districts and attractions.', tips: ['About 30 minutes total', 'Wear comfortable shoes', 'Many teahouses along the way', 'Best in afternoon light'] }
+            },
+            renMinDaLiTang: {
+                image: 'https://upload.wikimedia.org/wikipedia/commons/e/e6/The_People%27s_Great_Hall_of_Chongqing.jpg',
+                color: 'linear-gradient(135deg, #fd79a8 0%, #e84393 100%)',
+                zh: { name: '🏛️ 人民大礼堂', desc: '重庆标志性建筑，仿古民族建筑风格。建于1954年，穹顶跨度亚洲第一。', tips: ['对面的三峡博物馆可一起参观', '可购买联票', '广场上有很多鸽子', '适合拍照打卡'] },
+                en: { name: '🏛️ Great Hall', desc: 'Chongqing\'s iconic building, traditional Chinese architectural style. Built in 1954 with Asia\'s largest dome span.', tips: ['Visit Three Gorges Museum across', 'Combo tickets available', 'Many pigeons in the square', 'Great for photos'] }
+            },
+            guanYinQiao: {
+                image: 'images/guanyinqiao.jpg',
+                color: 'linear-gradient(135deg, #fdcb6e 0%, #f39c12 100%)',
+                zh: { name: '🍜 观音桥', desc: '重庆最繁华的商业区之一，美女如云，美食遍地。晚上九街夜生活超丰富。', tips: ['晚上九街夜生活超丰富', '北仓文创园适合拍照', '美食街有各种小吃', '建议傍晚到晚上游览'] },
+                en: { name: '🍜 Guanyinqiao', desc: 'One of Chongqing\'s busiest commercial districts. Great food and nightlife, especially around 9th Street.', tips: ['Amazing nightlife at 9th Street', 'Beicang creative park nearby', 'Lots of street food', 'Best in evening'] }
+            },
+            wuRenJi: {
+                image: 'images/wurenji.jpg',
+                color: 'linear-gradient(135deg, #f39c12 0%, #e74c3c 100%)',
+                zh: { name: '⭐ 无人机表演', desc: '重庆每周六晚上的固定表演！5000+无人机同步升空，呈现3D立体图案。', tips: ['表演时间：每周六 20:30', '最佳观看点：长嘉汇购物公园观景台', '建议提前30分钟占位', '表演时长约18分钟'] },
+                en: { name: '⭐ Drone Show', desc: 'Weekly Saturday night show! 5000+ drones light up the sky with 3D patterns and effects.', tips: ['Time: Every Saturday 8:30 PM', 'Best spot: Changjiahui viewing deck', 'Arrive 30 min early', 'Show lasts ~18 min'] }
+            },
+            jiuZhaiGou: {
+                image: 'https://upload.wikimedia.org/wikipedia/commons/2/28/1_jiuzhaigou_valley_wu_hua_hai_2011b.jpg',
+                color: 'linear-gradient(135deg, #00b894 0%, #00cec9 100%)',
+                zh: { name: '🏞️ 九寨沟', desc: '"九寨归来不看水"！108个高山湖泊，五彩斑斓，被誉为"人间仙境"。', tips: ['建议游玩6-8小时', '带足干粮和水', '穿舒适的鞋子', '早晚温差大，注意保暖', '景区内可乘观光车'] },
+                en: { name: '🏞️ Jiuzhaigou', desc: '"After visiting Jiuzhaigou, no other waters will amaze you!" 108 alpine lakes with stunning colors - a true fairyland.', tips: ['Plan 6-8 hours', 'Bring snacks and water', 'Wear comfortable shoes', 'Large temperature swings', 'Shuttle bus available'] }
+            },
+            huangLong: {
+                image: 'https://upload.wikimedia.org/wikipedia/commons/6/68/1_huanglong_pools_aerial_2011.jpg',
+                color: 'linear-gradient(135deg, #81ecec 0%, #74b9ff 100%)',
+                zh: { name: '🌊 黄龙', desc: '世界自然遗产，以彩池、雪山、峡谷著称。海拔3000+米，高原上的彩色仙境。', tips: ['注意高原反应，缓慢行走', '可乘坐索道上山', '建议游玩4-5小时', '带氧气罐备用', '穿防滑鞋'] },
+                en: { name: '🌊 Huanglong', desc: 'UNESCO World Heritage site, famous for colorful pools, snow mountains, and canyons. At 3000+ meters elevation.', tips: ['Watch for altitude sickness', 'Cable car available', 'Plan 4-5 hours', 'Bring oxygen canister', 'Wear non-slip shoes'] }
+            },
+            tianShengSanQiao: {
+                image: 'https://upload.wikimedia.org/wikipedia/commons/3/33/Wulongtianshengsanqiao.JPG',
+                color: 'linear-gradient(135deg, #636e72 0%, #2d3436 100%)',
+                zh: { name: '🌉 武隆天生三桥', desc: '世界自然遗产，《变形金刚4》《满城尽带黄金甲》取景地。三座天然石桥气势磅礴。', tips: ['电影迷必打卡', '可乘电梯下到谷底', '景区内有观光车', '建议游玩3-4小时', '可与仙女山一起游览'] },
+                en: { name: '🌉 Three Natural Bridges', desc: 'UNESCO site, filming location for "Transformers 4" and "Curse of the Golden Flower". Three majestic natural stone bridges.', tips: ['Must-visit for movie fans', 'Elevator to canyon floor', 'Shuttle bus available', 'Plan 3-4 hours', 'Combine with Fairy Mountain'] }
+            },
+            daZuShiKe: {
+                image: 'https://upload.wikimedia.org/wikipedia/commons/5/53/Dazu_2007_685_full_view.jpg',
+                color: 'linear-gradient(135deg, #b2bec3 0%, #636e72 100%)',
+                zh: { name: '🗿 大足石刻', desc: '世界文化遗产，中国晚期石窟艺术的代表。5万余尊石刻造像，精美绝伦。', tips: ['建议请导游讲解，更有趣', '主要参观宝顶山石刻', '建议游玩3-4小时', '注意保护文物', '可与昌州古城一起游览'] },
+                en: { name: '🗿 Dazu Rock Carvings', desc: 'UNESCO World Heritage site, representing late Chinese grotto art. Over 50,000 exquisite stone carvings.', tips: ['Hire a guide for best experience', 'Focus on Baodingshan carvings', 'Plan 3-4 hours', 'Help preserve heritage', 'Combine with Changzhou Ancient City'] }
+            },
+            liangJiangYeYou: {
+                image: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Chaotianmen_Yangtze_River_Bridge1.jpg',
+                color: 'linear-gradient(135deg, #2c3e50 0%, #34495e 100%)',
+                zh: { name: '🛥️ 两江夜游', desc: '乘船游览长江和嘉陵江，欣赏重庆璀璨夜景。与香港维多利亚港、上海外滩并称中国三大夜景。', tips: ['建议选顶层甲板，视野更好', '航程约1小时', '建议晚上7-8点登船', '船上可购买饮料零食', '提前预订船票'] },
+                en: { name: '🛥️ Two Rivers Night Cruise', desc: 'Cruise along Yangtze and Jialing rivers to enjoy Chongqing\'s dazzling night view. Ranked among China\'s top 3 night views.', tips: ['Choose upper deck for better view', 'About 1 hour cruise', 'Board at 7-8 PM', 'Drinks available onboard', 'Book tickets in advance'] }
+            },
+            diaoYuCheng: {
+                image: 'https://upload.wikimedia.org/wikipedia/commons/5/54/Fishingtown.jpg',
+                color: 'linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%)',
+                zh: { name: '🏯 合川钓鱼城', desc: '改变世界历史的古城！1259年，蒙古大汗蒙哥在此战死。被称为"上帝折鞭之处"。', tips: ['历史爱好者必去', '建议游玩2-3小时', '可请导游讲解历史', '城内有餐厅可用餐', '适合返程前游览'] },
+                en: { name: '🏯 Fishing Town', desc: 'Ancient fortress that changed world history! In 1259, Mongke Khan died here, ending the Mongol westward expansion. Known as "Where God\'s Whip Broke".', tips: ['Must-visit for history buffs', 'Plan 2-3 hours', 'Hire a guide for history', 'Restaurants inside', 'Good for last day'] }
+            }
+        };
+        
+        // 当前语言
+        let currentLang = localStorage.getItem('lang') || 'zh';
+        
+        // 切换语言
+        function switchLang() {
+            currentLang = currentLang === 'zh' ? 'en' : 'zh';
+            localStorage.setItem('lang', currentLang);
+            applyLanguage();
+        }
+        
+        // 应用语言
+        function applyLanguage() {
+            document.getElementById('langBtn').textContent = currentLang === 'zh' ? 'EN' : '中文';
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (i18n[currentLang][key]) {
+                    el.textContent = i18n[currentLang][key];
+                }
+            });
+        }
+        
+        // 显示景点详情
         function showModal(spotId) {
             const spot = spots[spotId];
             if (!spot) return;
             
-            document.getElementById('modalTitle').textContent = spot.name;
-            document.getElementById('modalDesc').textContent = spot.desc;
+            const langData = spot[currentLang];
+            document.getElementById('modalTitle').textContent = langData.name;
+            document.getElementById('modalDesc').textContent = langData.desc;
+            document.getElementById('modalTipsTitle').textContent = i18n[currentLang].tipsTitle;
             
-            // 使用图片作为背景
             const modalImage = document.getElementById('modalImage');
             if (spot.image) {
                 modalImage.style.background = `url('${spot.image}') center/cover`;
@@ -496,7 +564,7 @@
             }
             
             const tipsList = document.getElementById('modalTipsList');
-            tipsList.innerHTML = spot.tips.map(tip => `<li>${tip}</li>`).join('');
+            tipsList.innerHTML = langData.tips.map(tip => `<li>${tip}</li>`).join('');
             
             document.getElementById('modalOverlay').classList.add('active');
             document.body.style.overflow = 'hidden';
@@ -512,6 +580,9 @@
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') closeModal();
         });
+        
+        // 页面加载时应用保存的语言
+        applyLanguage();
     </script>
 </body>
 </html>
