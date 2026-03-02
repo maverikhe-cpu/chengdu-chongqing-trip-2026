@@ -27,6 +27,15 @@
         .timeline-content table { width: 100%; margin-top: 10px; border-collapse: collapse; }
         .timeline-content td { padding: 8px 12px; border-bottom: 1px solid #eee; }
         .timeline-content td:first-child { font-weight: 600; color: #667eea; width: 100px; }
+        .spot-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 20px; }
+        .spot-card { background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: all 0.3s ease; }
+        .spot-card:hover { transform: translateY(-8px); box-shadow: 0 12px 30px rgba(102,126,234,0.3); }
+        .spot-image { height: 200px; background-size: cover; background-position: center; position: relative; }
+        .spot-image::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 80px; background: linear-gradient(transparent, rgba(0,0,0,0.3)); }
+        .spot-info { padding: 20px; }
+        .spot-info h3 { font-size: 20px; color: #667eea; margin-bottom: 10px; }
+        .spot-info p { font-size: 14px; color: #666; line-height: 1.6; margin-bottom: 12px; }
+        .spot-tip { display: inline-block; background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%); padding: 6px 12px; border-radius: 20px; font-size: 12px; color: #667eea; }
         .attractions { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px; }
         .attraction { background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%); padding: 15px; border-radius: 10px; border-left: 4px solid #667eea; }
         .attraction h5 { color: #667eea; font-size: 16px; margin-bottom: 8px; }
@@ -59,6 +68,119 @@
             <h1>🏔️ 川渝之旅 2026</h1>
             <div class="subtitle">成都·重庆·九寨沟 10日游</div>
             <div class="meta">📅 2026年3月12日 - 3月21日 | ⏱️ 10天9晚</div>
+        </div>
+        
+        <div class="section">
+            <h2>📷 景点介绍</h2>
+            <div class="spot-grid">
+                <div class="spot-card">
+                    <div class="spot-image" style="background-image: url('https://images.unsplash.com/photo-1590559899731-a382839e5549?w=400');"></div>
+                    <div class="spot-info">
+                        <h3>🌃 洪崖洞</h3>
+                        <p>重庆最火的网红打卡地！11层吊脚楼依山而建，夜景灯光璀璨，仿佛现实版《千与千寻》。</p>
+                        <span class="spot-tip">💡 最佳观赏时间：19:00-22:00</span>
+                    </div>
+                </div>
+                
+                <div class="spot-card">
+                    <div class="spot-image" style="background-image: url('https://images.unsplash.com/photo-1545893835-abaa50cbe628?w=400');"></div>
+                    <div class="spot-info">
+                        <h3>🏙️ 解放碑</h3>
+                        <p>重庆的地标建筑，中国唯一纪念抗战胜利的纪念碑。周围是繁华的步行街，购物美食天堂。</p>
+                        <span class="spot-tip">💡 逛街吃火锅的最佳起点</span>
+                    </div>
+                </div>
+                
+                <div class="spot-card">
+                    <div class="spot-image" style="background-image: url('https://images.unsplash.com/photo-1533104816931-20fa691ff6ca?w=400');"></div>
+                    <div class="spot-info">
+                        <h3>🚝 李子坝轻轨</h3>
+                        <p>重庆8D魔幻交通的代表！轻轨2号线穿楼而过，是全球独一无二的景观。</p>
+                        <span class="spot-tip">💡 最佳拍摄点：李子坝公园观景台</span>
+                    </div>
+                </div>
+                
+                <div class="spot-card">
+                    <div class="spot-image" style="background-image: url('https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=400');"></div>
+                    <div class="spot-info">
+                        <h3>🪜 十八梯</h3>
+                        <p>老重庆的记忆，电影《从你的全世界路过》取景地。石阶蜿蜒，烟火气息浓厚。</p>
+                        <span class="spot-tip">💡 从上往下走更轻松</span>
+                    </div>
+                </div>
+                
+                <div class="spot-card">
+                    <div class="spot-image" style="background-image: url('https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=400');"></div>
+                    <div class="spot-info">
+                        <h3>🏛️ 人民大礼堂</h3>
+                        <p>重庆标志性建筑，仿古民族建筑风格。穹顶跨度亚洲第一，气势恢宏。</p>
+                        <span class="spot-tip">💡 对面的三峡博物馆可一起参观</span>
+                    </div>
+                </div>
+                
+                <div class="spot-card">
+                    <div class="spot-image" style="background-image: url('https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=400');"></div>
+                    <div class="spot-info">
+                        <h3>🍜 观音桥</h3>
+                        <p>重庆最繁华的商业区之一，美女如云，美食遍地。北仓文创园就在附近，文艺青年的最爱。</p>
+                        <span class="spot-tip">💡 晚上九街夜生活超丰富</span>
+                    </div>
+                </div>
+                
+                <div class="spot-card">
+                    <div class="spot-image" style="background-image: url('https://images.unsplash.com/photo-1513415756790-2ac1db1297d0?w=400');"></div>
+                    <div class="spot-info">
+                        <h3>🏞️ 九寨沟</h3>
+                        <p>"九寨归来不看水"！108个高山湖泊，五彩斑斓，被誉为"人间仙境"。是世界自然遗产。</p>
+                        <span class="spot-tip">💡 建议游玩6-8小时，带足干粮</span>
+                    </div>
+                </div>
+                
+                <div class="spot-card">
+                    <div class="spot-image" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400');"></div>
+                    <div class="spot-info">
+                        <h3>🌊 黄龙</h3>
+                        <p>世界自然遗产，以彩池、雪山、峡谷、森林著称。海拔3000+米，高原上的彩色仙境。</p>
+                        <span class="spot-tip">💡 注意高原反应，缓慢行走</span>
+                    </div>
+                </div>
+                
+                <div class="spot-card">
+                    <div class="spot-image" style="background-image: url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=400');"></div>
+                    <div class="spot-info">
+                        <h3>🌉 武隆天生三桥</h3>
+                        <p>世界自然遗产，《变形金刚4》《满城尽带黄金甲》取景地。三座天然石桥气势磅礴。</p>
+                        <span class="spot-tip">💡 电影迷必打卡</span>
+                    </div>
+                </div>
+                
+                <div class="spot-card">
+                    <div class="spot-image" style="background-image: url('https://images.unsplash.com/photo-1609766856923-7e0a0c06151d?w=400');"></div>
+                    <div class="spot-info">
+                        <h3>🗿 大足石刻</h3>
+                        <p>世界文化遗产，中国晚期石窟艺术的代表。5万余尊石刻造像，精美绝伦。</p>
+                        <span class="spot-tip">💡 建议请导游讲解，更有趣</span>
+                    </div>
+                </div>
+                
+                <div class="spot-card">
+                    <div class="spot-image" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400');"></div>
+                    <div class="spot-info">
+                        <h3>🛥️ 两江夜游</h3>
+                        <p>乘船游览长江和嘉陵江，欣赏重庆璀璨夜景。洪崖洞、千厮门大桥尽收眼底。</p>
+                        <span class="spot-tip">💡 建议选顶层甲板，视野更好</span>
+                    </div>
+                </div>
+                
+                <div class="spot-card">
+                    <div class="spot-image" style="background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400');"></div>
+                    <div class="spot-info">
+                        <h3>🏯 合川钓鱼城</h3>
+                        <p>改变世界历史的古城！蒙古大汗蒙哥在此战死，间接导致蒙古西征停止。被称为"上帝折鞭之处"。</p>
+                        <span class="spot-tip">💡 历史爱好者必去</span>
+                    </div>
+                </div>
+            </div>
         </div>
         
         <div class="section">
@@ -289,7 +411,7 @@
         
         <div class="footer">
             <p>祝旅途愉快！🧡</p>
-            <p><small>Powered by Marble AI | 天气更新：2026年3月2日</small></p>
+            <p><small>Powered by Marble AI | 图文介绍更新：2026年3月2日</small></p>
         </div>
     </div>
 </body>
