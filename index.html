@@ -20,25 +20,22 @@
         .section h3 { font-size: 20px; color: #764ba2; margin: 25px 0 15px; }
         .timeline { position: relative; padding-left: 30px; }
         .timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 3px; background: linear-gradient(to bottom, #667eea, #764ba2); border-radius: 3px; }
-        .timeline-item { position: relative; margin-bottom: 30px; padding: 20px; background: #f9f9f9; border-radius: 12px; transition: all 0.3s ease; }
+        .timeline-item { position: relative; margin-bottom: 30px; padding: 20px; background: #f9f9f9; border-radius: 12px; transition: all 0.3s ease; text-align: left; }
         .timeline-item:hover { transform: translateX(5px); box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
         .timeline-item::before { content: ''; position: absolute; left: -26px; top: 25px; width: 14px; height: 14px; background: #667eea; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 0 0 3px #667eea; }
-        .timeline-day { font-size: 14px; color: #667eea; font-weight: 600; margin-bottom: 5px; }
-        .timeline-title { font-size: 20px; font-weight: bold; color: #333; margin-bottom: 10px; }
+        .timeline-day { font-size: 14px; color: #667eea; font-weight: 600; margin-bottom: 5px; text-align: left; }
+        .timeline-title { font-size: 20px; font-weight: bold; color: #333; margin-bottom: 10px; text-align: left; }
         .timeline-content { font-size: 15px; color: #666; text-align: left; }
-        .timeline-content span { display: block; text-align: left; }
-        .timeline-content table { width: 100%; margin-top: 10px; border-collapse: collapse; text-align: left; }
+        .timeline-content table { width: 100%; margin-top: 10px; border-collapse: collapse; }
         .timeline-content td { padding: 8px 12px; border-bottom: 1px solid #eee; text-align: left; }
         .timeline-content td:first-child { font-weight: 600; color: #667eea; width: 100px; }
         .attractions { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px; }
-        .attraction h5 { text-align: left; }
-        .attraction p { text-align: left; }
-        .attraction { background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%); padding: 15px; border-radius: 10px; border-left: 4px solid #667eea; cursor: pointer; transition: all 0.3s ease; }
+        .attraction { background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%); padding: 15px; border-radius: 10px; border-left: 4px solid #667eea; cursor: pointer; transition: all 0.3s ease; text-align: left; }
         .attraction:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(102,126,234,0.3); background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%); }
-        .attraction h5 { color: #667eea; font-size: 16px; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between; }
-        .attraction h5::after { content: '›'; font-size: 20px; opacity: 0.5; }
-        .attraction:hover h5::after { opacity: 1; transform: translateX(3px); }
-        .attraction p { font-size: 13px; color: #666; }
+        .attraction h5 { color: #667eea; font-size: 16px; margin: 0 0 5px 0; text-align: left; }
+        .attraction h5::after { content: '›'; float: right; opacity: 0.5; }
+        .attraction:hover h5::after { opacity: 1; }
+        .attraction p { font-size: 13px; color: #666; margin: 0; text-align: left; }
         .checklist { list-style: none; }
         .checklist li { padding: 12px 20px; margin: 10px 0; background: #f9f9f9; border-radius: 8px; }
         .checklist li::before { content: '☐'; margin-right: 12px; font-size: 18px; }
