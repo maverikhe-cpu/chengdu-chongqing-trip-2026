@@ -1,7 +1,7 @@
 // Auto-generated from expenses/expense_log.md by scripts_generate_expense_data.py
 window.EXPENSE_DATA = {
   "source": "expenses/expense_log.md",
-  "generatedAt": "2026-03-14T11:23:18",
+  "generatedAt": "2026-03-14T11:29:26",
   "households": [
     {
       "id": "mav",
@@ -478,6 +478,37 @@ window.EXPENSE_DATA = {
         "参与者": "8人",
         "付费人": "Mav",
         "费用": "¥16.50"
+      }
+    },
+    {
+      "date": "2026-03-14",
+      "category": "ticket",
+      "categoryLabel": {
+        "zh": "门票/景点",
+        "en": "Tickets / Attractions"
+      },
+      "title": "长江索道（南站单程票，11:00-11:59，票号D227）",
+      "subtitle": "",
+      "payer": "Mav",
+      "participantsRaw": "8人",
+      "households": [
+        "mav",
+        "chan",
+        "ling",
+        "anita"
+      ],
+      "splitMode": "household",
+      "amount": 240.0,
+      "notes": {
+        "zh": "按 4 家共 8 人分摊：Mav+严正、Chan夫妇、Ling夫妇、Anita+Benson",
+        "en": "Split across 4 households / 8 people: Mav+Yan Zheng, Chan couple, Ling couple, Anita+Benson"
+      },
+      "raw": {
+        "日期": "2026-03-14",
+        "景点": "长江索道（南站单程票，11:00-11:59，票号D227）",
+        "参与者": "8人",
+        "付费人": "Mav",
+        "费用": "¥240"
       }
     }
   ]
