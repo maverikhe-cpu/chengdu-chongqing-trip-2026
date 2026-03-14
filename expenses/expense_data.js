@@ -1,7 +1,7 @@
 // Auto-generated from expenses/expense_log.md by scripts_generate_expense_data.py
 window.EXPENSE_DATA = {
   "source": "expenses/expense_log.md",
-  "generatedAt": "2026-03-14T14:06:31",
+  "generatedAt": "2026-03-14T20:26:21",
   "households": [
     {
       "id": "mav",
@@ -222,6 +222,38 @@ window.EXPENSE_DATA = {
         "参与者": "8人",
         "付费人": "Mav",
         "费用": "¥472.01"
+      }
+    },
+    {
+      "date": "2026-03-14",
+      "category": "meal",
+      "categoryLabel": {
+        "zh": "餐饮",
+        "en": "Meals"
+      },
+      "title": "蛙蛙鸡·美蛙肥肠鱼（南滨路店）",
+      "subtitle": "晚餐",
+      "payer": "Mav",
+      "participantsRaw": "8人",
+      "households": [
+        "mav",
+        "chan",
+        "ling",
+        "anita"
+      ],
+      "splitMode": "household",
+      "amount": 628.0,
+      "notes": {
+        "zh": "按 4 家共 8 人分摊：Mav+严正、Chan夫妇、Ling夫妇、Anita+Benson",
+        "en": "Split across 4 households / 8 people: Mav+Yan Zheng, Chan couple, Ling couple, Anita+Benson"
+      },
+      "raw": {
+        "日期": "2026-03-14",
+        "用餐类型": "晚餐",
+        "地点/餐厅": "蛙蛙鸡·美蛙肥肠鱼（南滨路店）",
+        "参与者": "8人",
+        "付费人": "Mav",
+        "费用": "¥628.00"
       }
     },
     {
