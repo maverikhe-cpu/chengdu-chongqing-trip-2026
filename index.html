@@ -47,6 +47,35 @@
         .emoji { font-size: 20px; }
         .footer { background: #333; color: white; text-align: center; padding: 30px; }
         .footer p { opacity: 0.8; margin: 5px 0; }
+
+        .expense-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin: 20px 0 30px; }
+        .expense-stat { background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%); border: 1px solid #667eea20; border-radius: 14px; padding: 18px; }
+        .expense-stat .label { font-size: 13px; color: #777; margin-bottom: 8px; }
+        .expense-stat .value { font-size: 28px; font-weight: 700; color: #333; }
+        .expense-stat .subvalue { font-size: 13px; color: #667eea; margin-top: 6px; }
+        .expense-toolbar { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+        .segmented { display: inline-flex; background: #f2f3f8; border-radius: 999px; padding: 4px; gap: 4px; }
+        .segmented button { border: none; background: transparent; padding: 10px 16px; border-radius: 999px; cursor: pointer; color: #666; font-weight: 600; }
+        .segmented button.active { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; box-shadow: 0 6px 18px rgba(102,126,234,0.25); }
+        .expense-note { background: #f8f8fc; border-left: 4px solid #764ba2; padding: 14px 18px; border-radius: 10px; color: #555; margin-bottom: 20px; }
+        .expense-category-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 28px; }
+        .expense-category-item { background: #fafafe; border: 1px solid #ececf6; border-radius: 12px; padding: 14px; }
+        .expense-category-item .name { font-size: 14px; color: #666; }
+        .expense-category-item .amount { font-size: 22px; font-weight: 700; color: #333; margin-top: 8px; }
+        .expense-table-wrap { overflow-x: auto; margin-bottom: 26px; }
+        .expense-table { width: 100%; border-collapse: collapse; min-width: 760px; }
+        .expense-table th, .expense-table td { padding: 12px 14px; border-bottom: 1px solid #eee; text-align: left; vertical-align: top; }
+        .expense-table th { background: #f7f7fb; color: #667eea; font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; }
+        .expense-table td small { color: #888; display: block; margin-top: 4px; }
+        .expense-badge { display: inline-block; padding: 4px 10px; border-radius: 999px; background: #eef1ff; color: #667eea; font-size: 12px; font-weight: 700; }
+        .settlement-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+        .settlement-card { border: 1px solid #ececf6; border-radius: 14px; padding: 18px; background: #fff; box-shadow: 0 4px 16px rgba(0,0,0,0.04); }
+        .settlement-card h4 { margin: 0 0 10px; color: #333; font-size: 18px; }
+        .settlement-row { display: flex; justify-content: space-between; gap: 12px; margin: 8px 0; color: #555; font-size: 14px; }
+        .settlement-row strong { color: #333; }
+        .settlement-net.positive { color: #16a34a; }
+        .settlement-net.negative { color: #dc2626; }
+        .expense-empty { color: #888; font-style: italic; }
         
         /* Modal Styles */
         .modal-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); z-index: 1000; backdrop-filter: blur(5px); }
@@ -291,6 +320,39 @@
             </div>
         </div>
         
+        <div class="section" id="expenses">
+            <h2>💸 <span data-i18n="expenseTracker">费用跟踪</span></h2>
+            <div class="expense-note" id="expenseIntro"></div>
+            <div class="expense-toolbar">
+                <div class="segmented" id="settlementModeToggle">
+                    <button type="button" data-mode="household" class="active" data-i18n="byHousehold">按每家</button>
+                    <button type="button" data-mode="person" data-i18n="byPerson">按每人</button>
+                </div>
+                <div style="color:#888;font-size:13px;" id="expenseMeta"></div>
+            </div>
+            <div class="expense-grid" id="expenseStats"></div>
+            <h3 data-i18n="spendByCategory">分类花费</h3>
+            <div class="expense-category-list" id="expenseCategories"></div>
+            <h3 data-i18n="settlementSummary">分摊结算</h3>
+            <div class="settlement-grid" id="expenseSettlement"></div>
+            <h3 data-i18n="expenseLedger">费用明细</h3>
+            <div class="expense-table-wrap">
+                <table class="expense-table">
+                    <thead>
+                        <tr>
+                            <th data-i18n="date">日期</th>
+                            <th data-i18n="category">分类</th>
+                            <th data-i18n="item">项目</th>
+                            <th data-i18n="participants">参与者</th>
+                            <th data-i18n="payerCol">付款人</th>
+                            <th data-i18n="amount">金额</th>
+                        </tr>
+                    </thead>
+                    <tbody id="expenseLedgerBody"></tbody>
+                </table>
+            </div>
+        </div>
+
         <div class="section" id="notices">
             <h2 data-i18n="notices">⚠️ 注意事项</h2>
             <div class="warning">
@@ -405,6 +467,7 @@
         <div class="nav-section">
             <div class="nav-section-title" data-i18n="navInfo">信息</div>
             <a class="nav-link" onclick="scrollToSection('hotels')"><span data-i18n="hotels">🏨 酒店信息</span></a>
+            <a class="nav-link" onclick="scrollToSection('expenses')"><span data-i18n="expenseTracker">💸 费用跟踪</span></a>
             <a class="nav-link" onclick="scrollToSection('notices')"><span data-i18n="notices">⚠️ 注意事项</span></a>
             <a class="nav-link" onclick="scrollToSection('packing')"><span data-i18n="packingList">🎒 出行清单</span></a>
         </div>
@@ -428,6 +491,7 @@
         </div>
     </div>
     
+    <script src="expenses/expense_data.js"></script>
     <script>
         // 多语言翻译
         const i18n = {
@@ -489,6 +553,9 @@
                 jzgWeatherNote: '九寨沟特点：高原海拔（2335米），昼夜温差大，早晚接近零度，一定要带厚衣服！可能下雪，但雪景会很美 ❄️',
                 
                 payment: '💰 支付', paymentNote: '支持微信、支付宝，建议备少量现金',
+                expenseTracker: '费用跟踪', byHousehold: '按每家', byPerson: '按每人',
+                spendByCategory: '分类花费', settlementSummary: '分摊结算', expenseLedger: '费用明细',
+                category: '分类', item: '项目', participants: '参与者', payerCol: '付款人', amount: '金额',
                 // Packing
                 cqEssentials: '重庆必备', idPassport: '身份证/护照', thinJacket: '薄外套 + 长袖（15-21°C）',
                 umbrella: '雨伞/雨衣（几乎每天有雨）', waterproofShoes: '防水鞋/防滑鞋', comfyShoes: '舒适运动鞋（重庆多坡道）',
@@ -560,6 +627,9 @@
                 jzgWeatherNote: 'Jiuzhaigou: HIGH ALTITUDE! (-11 to 2°C), SNOW expected Mar 14-17! Bring heavy winter gear - down jacket, thermal, gloves! ❄️',
                 
                 payment: '💰 Payment', paymentNote: 'WeChat Pay & Alipay accepted, bring some cash',
+                expenseTracker: 'Expense Tracker', byHousehold: 'By Household', byPerson: 'By Person',
+                spendByCategory: 'Spend by Category', settlementSummary: 'Settlement Summary', expenseLedger: 'Expense Ledger',
+                category: 'Category', item: 'Item', participants: 'Participants', payerCol: 'Paid by', amount: 'Amount',
                 // Packing
                 cqEssentials: 'Chongqing Essentials', idPassport: 'ID/Passport', thinJacket: 'Light jacket + long sleeves (15-21°C)',
                 umbrella: 'Umbrella/raincoat (rain almost daily)', waterproofShoes: 'Waterproof/non-slip shoes', comfyShoes: 'Comfortable walking shoes (lots of hills)',
@@ -664,6 +734,165 @@
         
         // 当前语言
         let currentLang = localStorage.getItem('lang') || 'zh';
+        let settlementView = 'household';
+
+        function formatCurrency(amount) {
+            return `¥${Number(amount || 0).toFixed(2)}`;
+        }
+
+        function getExpenseData() {
+            return window.EXPENSE_DATA || { households: [], entries: [] };
+        }
+
+        function getLabels() {
+            return currentLang === 'zh'
+                ? {
+                    intro: '主账本来自 expenses/expense_log.md。默认按每家结算，也可以切到按每人查看谁该补多少钱。',
+                    generated: '数据更新',
+                    source: '账本来源',
+                    totalSpend: '总支出',
+                    entries: '已记录笔数',
+                    topCategory: '最高花费分类',
+                    topPayer: '当前垫付最多',
+                    splitHintHousehold: '默认按每家平摊，适合夫妻同行一起算账。',
+                    splitHintPerson: '按每人拆分，适合处理“7人消费”这种细账。',
+                    shouldPay: '应分摊',
+                    paid: '已垫付',
+                    net: '净额',
+                    shouldReceive: '应收',
+                    shouldTransfer: '应补',
+                    noData: '暂时还没有费用记录。',
+                    household: '每家',
+                    person: '每人',
+                    included: '计入',
+                }
+                : {
+                    intro: 'Source of truth remains expenses/expense_log.md. Default settlement is by household, with an optional per-person view for finer splits.',
+                    generated: 'Updated',
+                    source: 'Source',
+                    totalSpend: 'Total Spend',
+                    entries: 'Entries',
+                    topCategory: 'Top Category',
+                    topPayer: 'Top Payer',
+                    splitHintHousehold: 'Default split is by household — best for couple/group travel.',
+                    splitHintPerson: 'Per-person split helps with edge cases like a 7-person purchase.',
+                    shouldPay: 'Should Pay',
+                    paid: 'Paid',
+                    net: 'Net',
+                    shouldReceive: 'To Receive',
+                    shouldTransfer: 'To Transfer',
+                    noData: 'No expenses recorded yet.',
+                    household: 'Household',
+                    person: 'Person',
+                    included: 'Included',
+                };
+        }
+
+        function buildSettlement(view) {
+            const data = getExpenseData();
+            const buckets = {};
+            const labels = getLabels();
+            if (view === 'household') {
+                data.households.forEach(h => {
+                    buckets[h.id] = { name: h.name[currentLang], shouldPay: 0, paid: 0 };
+                });
+            } else {
+                data.households.forEach(h => {
+                    h.members.forEach(member => {
+                        buckets[member] = { name: member, shouldPay: 0, paid: 0 };
+                    });
+                });
+            }
+
+            data.entries.forEach(entry => {
+                if (view === 'household') {
+                    const participants = entry.households || [];
+                    const share = participants.length ? entry.amount / participants.length : 0;
+                    participants.forEach(id => { if (buckets[id]) buckets[id].shouldPay += share; });
+                    const payerHousehold = data.households.find(h => h.members.includes(entry.payer));
+                    const payerKey = payerHousehold ? payerHousehold.id : entry.payer;
+                    if (buckets[payerKey]) buckets[payerKey].paid += entry.amount;
+                } else {
+                    const payerKey = entry.payer;
+                    if (buckets[payerKey]) buckets[payerKey].paid += entry.amount;
+                    let participants = [];
+                    (entry.households || []).forEach(id => {
+                        const household = data.households.find(h => h.id === id);
+                        if (household) participants.push(...household.members);
+                    });
+                    if (entry.participantsRaw === '7人') {
+                        participants = participants.filter(name => name !== 'Benson');
+                    }
+                    const share = participants.length ? entry.amount / participants.length : 0;
+                    participants.forEach(name => { if (buckets[name]) buckets[name].shouldPay += share; });
+                }
+            });
+
+            return Object.values(buckets)
+                .map(item => ({ ...item, net: item.paid - item.shouldPay }))
+                .filter(item => item.paid || item.shouldPay)
+                .sort((a, b) => b.net - a.net || a.name.localeCompare(b.name));
+        }
+
+        function renderExpenseModule() {
+            const data = getExpenseData();
+            const labels = getLabels();
+            const statsEl = document.getElementById('expenseStats');
+            if (!statsEl) return;
+            const entries = data.entries || [];
+            const total = entries.reduce((sum, item) => sum + item.amount, 0);
+            const categoryTotals = {};
+            const payerTotals = {};
+            entries.forEach(entry => {
+                categoryTotals[entry.category] = (categoryTotals[entry.category] || 0) + entry.amount;
+                payerTotals[entry.payer] = (payerTotals[entry.payer] || 0) + entry.amount;
+            });
+            const topCategory = Object.entries(categoryTotals).sort((a,b) => b[1] - a[1])[0];
+            const topPayer = Object.entries(payerTotals).sort((a,b) => b[1] - a[1])[0];
+
+            document.getElementById('expenseIntro').textContent = labels.intro;
+            document.getElementById('expenseMeta').textContent = `${labels.generated}: ${data.generatedAt || '-'} · ${labels.source}: ${data.source || '-'}`;
+            document.querySelectorAll('#settlementModeToggle button').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.mode === settlementView);
+            });
+
+            statsEl.innerHTML = [
+                { label: labels.totalSpend, value: formatCurrency(total), subvalue: `${entries.length} ${labels.entries}` },
+                { label: labels.topCategory, value: topCategory ? (entries.find(e => e.category === topCategory[0])?.categoryLabel?.[currentLang] || topCategory[0]) : '-', subvalue: topCategory ? formatCurrency(topCategory[1]) : '-' },
+                { label: labels.topPayer, value: topPayer ? topPayer[0] : '-', subvalue: topPayer ? formatCurrency(topPayer[1]) : '-' },
+                { label: settlementView === 'household' ? labels.household : labels.person, value: settlementView === 'household' ? String((data.households || []).filter(h => h.id !== 'zhongxin').length) : String((data.households || []).filter(h => h.id !== 'zhongxin').reduce((sum, h) => sum + h.members.length, 0)), subvalue: settlementView === 'household' ? labels.splitHintHousehold : labels.splitHintPerson },
+            ].map(card => `<div class="expense-stat"><div class="label">${card.label}</div><div class="value">${card.value}</div><div class="subvalue">${card.subvalue}</div></div>`).join('');
+
+            document.getElementById('expenseCategories').innerHTML = Object.entries(categoryTotals)
+                .sort((a,b) => b[1] - a[1])
+                .map(([key, amount]) => {
+                    const sample = entries.find(e => e.category === key);
+                    return `<div class="expense-category-item"><div class="name">${sample?.categoryLabel?.[currentLang] || key}</div><div class="amount">${formatCurrency(amount)}</div></div>`;
+                }).join('') || `<div class="expense-empty">${labels.noData}</div>`;
+
+            document.getElementById('expenseSettlement').innerHTML = buildSettlement(settlementView)
+                .map(item => {
+                    const netClass = item.net >= 0 ? 'positive' : 'negative';
+                    const netLabel = item.net >= 0 ? labels.shouldReceive : labels.shouldTransfer;
+                    return `<div class="settlement-card"><h4>${item.name}</h4><div class="settlement-row"><span>${labels.shouldPay}</span><strong>${formatCurrency(item.shouldPay)}</strong></div><div class="settlement-row"><span>${labels.paid}</span><strong>${formatCurrency(item.paid)}</strong></div><div class="settlement-row settlement-net ${netClass}"><span>${netLabel}</span><strong>${formatCurrency(Math.abs(item.net))}</strong></div></div>`;
+                }).join('') || `<div class="expense-empty">${labels.noData}</div>`;
+
+            document.getElementById('expenseLedgerBody').innerHTML = entries.map(entry => {
+                const participantLabel = settlementView === 'household'
+                    ? (entry.households || []).map(id => data.households.find(h => h.id === id)?.name?.[currentLang] || id).join('、')
+                    : (() => {
+                        let members = [];
+                        (entry.households || []).forEach(id => {
+                            const household = data.households.find(h => h.id === id);
+                            if (household) members.push(...household.members);
+                        });
+                        if (entry.participantsRaw === '7人') members = members.filter(name => name !== 'Benson');
+                        return members.join('、');
+                    })();
+                const note = entry.notes ? entry.notes[currentLang] : '';
+                return `<tr><td>${entry.date}</td><td><span class="expense-badge">${entry.categoryLabel?.[currentLang] || entry.category}</span></td><td>${entry.title}${entry.subtitle ? `<small>${entry.subtitle}</small>` : ''}${note ? `<small>${note}</small>` : ''}</td><td>${participantLabel || entry.participantsRaw || '-'}</td><td>${entry.payer}</td><td>${formatCurrency(entry.amount)}</td></tr>`;
+            }).join('') || `<tr><td colspan="6" class="expense-empty">${labels.noData}</td></tr>`;
+        }
         
         // 切换语言
         function switchLang() {
@@ -681,6 +910,7 @@
                     el.textContent = i18n[currentLang][key];
                 }
             });
+            renderExpenseModule();
         }
         
         // 显示景点详情
@@ -723,6 +953,13 @@
             }
         });
         
+        document.querySelectorAll('#settlementModeToggle button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                settlementView = btn.dataset.mode;
+                renderExpenseModule();
+            });
+        });
+
         // 页面加载时应用保存的语言
         applyLanguage();
         
