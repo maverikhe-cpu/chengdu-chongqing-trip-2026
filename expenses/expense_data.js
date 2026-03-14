@@ -1,7 +1,7 @@
 // Auto-generated from expenses/expense_log.md by scripts_generate_expense_data.py
 window.EXPENSE_DATA = {
   "source": "expenses/expense_log.md",
-  "generatedAt": "2026-03-14T20:26:21",
+  "generatedAt": "2026-03-14T20:29:21",
   "households": [
     {
       "id": "mav",
@@ -231,7 +231,7 @@ window.EXPENSE_DATA = {
         "zh": "餐饮",
         "en": "Meals"
       },
-      "title": "蛙蛙鸡·美蛙肥肠鱼（南滨路店）",
+      "title": "朗涂老味火锅（长嘉汇店）",
       "subtitle": "晚餐",
       "payer": "Mav",
       "participantsRaw": "8人",
@@ -242,7 +242,7 @@ window.EXPENSE_DATA = {
         "anita"
       ],
       "splitMode": "household",
-      "amount": 628.0,
+      "amount": 1228.0,
       "notes": {
         "zh": "按 4 家共 8 人分摊：Mav+严正、Chan夫妇、Ling夫妇、Anita+Benson",
         "en": "Split across 4 households / 8 people: Mav+Yan Zheng, Chan couple, Ling couple, Anita+Benson"
@@ -250,10 +250,10 @@ window.EXPENSE_DATA = {
       "raw": {
         "日期": "2026-03-14",
         "用餐类型": "晚餐",
-        "地点/餐厅": "蛙蛙鸡·美蛙肥肠鱼（南滨路店）",
+        "地点/餐厅": "朗涂老味火锅（长嘉汇店）",
         "参与者": "8人",
         "付费人": "Mav",
-        "费用": "¥628.00"
+        "费用": "¥1,228.00"
       }
     },
     {
