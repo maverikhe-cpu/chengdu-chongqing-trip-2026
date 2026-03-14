@@ -1,7 +1,7 @@
 // Auto-generated from expenses/expense_log.md by scripts_generate_expense_data.py
 window.EXPENSE_DATA = {
   "source": "expenses/expense_log.md",
-  "generatedAt": "2026-03-14T08:47:08",
+  "generatedAt": "2026-03-14T10:41:26",
   "households": [
     {
       "id": "mav",
@@ -350,6 +350,70 @@ window.EXPENSE_DATA = {
         "参与者": "8人",
         "付费人": "Mav",
         "费用": "¥16.14"
+      }
+    },
+    {
+      "date": "2026-03-14",
+      "category": "transport",
+      "categoryLabel": {
+        "zh": "交通",
+        "en": "Transport"
+      },
+      "title": "魁星楼停车场 → 李子坝单轨穿楼观景平台",
+      "subtitle": "网约车",
+      "payer": "Mav",
+      "participantsRaw": "8人",
+      "households": [
+        "mav",
+        "chan",
+        "ling",
+        "anita"
+      ],
+      "splitMode": "household",
+      "amount": 11.2,
+      "notes": {
+        "zh": "按 4 家共 8 人分摊：Mav+严正、Chan夫妇、Ling夫妇、Anita+Benson",
+        "en": "Split across 4 households / 8 people: Mav+Yan Zheng, Chan couple, Ling couple, Anita+Benson"
+      },
+      "raw": {
+        "日期": "2026-03-14",
+        "类型": "网约车",
+        "路线": "魁星楼停车场 → 李子坝单轨穿楼观景平台",
+        "参与者": "8人",
+        "付费人": "Mav",
+        "费用": "¥11.20"
+      }
+    },
+    {
+      "date": "2026-03-14",
+      "category": "transport",
+      "categoryLabel": {
+        "zh": "交通",
+        "en": "Transport"
+      },
+      "title": "重庆医科大学附属第二医院（2号门）→ 李子坝单轨穿楼观景平台",
+      "subtitle": "网约车",
+      "payer": "Mav",
+      "participantsRaw": "8人",
+      "households": [
+        "mav",
+        "chan",
+        "ling",
+        "anita"
+      ],
+      "splitMode": "household",
+      "amount": 11.3,
+      "notes": {
+        "zh": "按 4 家共 8 人分摊：Mav+严正、Chan夫妇、Ling夫妇、Anita+Benson",
+        "en": "Split across 4 households / 8 people: Mav+Yan Zheng, Chan couple, Ling couple, Anita+Benson"
+      },
+      "raw": {
+        "日期": "2026-03-14",
+        "类型": "网约车",
+        "路线": "重庆医科大学附属第二医院（2号门）→ 李子坝单轨穿楼观景平台",
+        "参与者": "8人",
+        "付费人": "Mav",
+        "费用": "¥11.30"
       }
     }
   ]
