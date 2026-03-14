@@ -1,7 +1,7 @@
 // Auto-generated from expenses/expense_log.md by scripts_generate_expense_data.py
 window.EXPENSE_DATA = {
   "source": "expenses/expense_log.md",
-  "generatedAt": "2026-03-14T11:29:26",
+  "generatedAt": "2026-03-14T11:32:35",
   "households": [
     {
       "id": "mav",
@@ -158,6 +158,38 @@ window.EXPENSE_DATA = {
         "参与者": "8人",
         "付费人": "Mav",
         "费用": "¥484"
+      }
+    },
+    {
+      "date": "2026-03-14",
+      "category": "meal",
+      "categoryLabel": {
+        "zh": "餐饮",
+        "en": "Meals"
+      },
+      "title": "方恩·泡茶（重庆龙门浩长江索道店，7杯）",
+      "subtitle": "饮品",
+      "payer": "Mav",
+      "participantsRaw": "7人",
+      "households": [
+        "mav",
+        "chan",
+        "ling",
+        "anita"
+      ],
+      "splitMode": "person",
+      "amount": 106.0,
+      "notes": {
+        "zh": "同行 8 人中 Benson 未参与消费，网页暂仍按 4 家显示明细；结算可切换按人查看",
+        "en": "Benson did not consume this item. Detail remains visible under the 4-household group; switch to per-person view for fine-grained settlement."
+      },
+      "raw": {
+        "日期": "2026-03-14",
+        "用餐类型": "饮品",
+        "地点/餐厅": "方恩·泡茶（重庆龙门浩长江索道店，7杯）",
+        "参与者": "7人",
+        "付费人": "Mav",
+        "费用": "¥106"
       }
     },
     {
