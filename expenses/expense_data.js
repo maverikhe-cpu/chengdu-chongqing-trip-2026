@@ -1,7 +1,7 @@
 // Auto-generated from expenses/expense_log.md by scripts_generate_expense_data.py
 window.EXPENSE_DATA = {
   "source": "expenses/expense_log.md",
-  "generatedAt": "2026-03-14T13:50:26",
+  "generatedAt": "2026-03-14T13:55:52",
   "households": [
     {
       "id": "mav",
@@ -210,7 +210,7 @@ window.EXPENSE_DATA = {
         "anita"
       ],
       "splitMode": "household",
-      "amount": 628.0,
+      "amount": 472.01,
       "notes": {
         "zh": "按 4 家共 8 人分摊：Mav+严正、Chan夫妇、Ling夫妇、Anita+Benson",
         "en": "Split across 4 households / 8 people: Mav+Yan Zheng, Chan couple, Ling couple, Anita+Benson"
@@ -221,7 +221,7 @@ window.EXPENSE_DATA = {
         "地点/餐厅": "老灶房（解放碑店）",
         "参与者": "8人",
         "付费人": "Mav",
-        "费用": "¥628.00"
+        "费用": "¥472.01"
       }
     },
     {
