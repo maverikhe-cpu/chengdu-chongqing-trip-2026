@@ -883,7 +883,13 @@
                     return `<div class="settlement-card"><h4>${item.name}</h4><div class="settlement-row"><span>${labels.shouldPay}</span><strong>${formatCurrency(item.shouldPay)}</strong></div><div class="settlement-row"><span>${labels.prepaid}</span><strong>${formatCurrency(item.prepaid || 0)}</strong></div><div class="settlement-row"><span>${labels.paid}</span><strong>${formatCurrency(item.paid)}</strong></div><div class="settlement-row settlement-net ${netClass}"><span>${netLabel}</span><strong>${formatCurrency(Math.abs(item.net))}</strong></div></div>`;
                 }).join('') || `<div class="expense-empty">${labels.noData}</div>`;
 
-            document.getElementById('expenseLedgerBody').innerHTML = entries.map(entry => {
+            const sortedEntries = [...entries].sort((a, b) => {
+                const aTime = `${a.date || ''} ${a.raw?.时间 || a.raw?.时段 || ''}`;
+                const bTime = `${b.date || ''} ${b.raw?.时间 || b.raw?.时段 || ''}`;
+                return bTime.localeCompare(aTime, 'zh-Hans-CN');
+            });
+
+            document.getElementById('expenseLedgerBody').innerHTML = sortedEntries.map(entry => {
                 const participantLabel = settlementView === 'household'
                     ? (entry.households || []).map(id => data.households.find(h => h.id === id)?.name?.[currentLang] || id).join('、')
                     : (() => {
