@@ -36,11 +36,11 @@ CATEGORY_LABELS = {
 }
 
 HOUSEHOLDS = [
-    {"id": "mav", "name": {"zh": "Mav家", "en": "Mav Household"}, "members": ["Mav", "严正"]},
-    {"id": "chan", "name": {"zh": "Chan家", "en": "Chan Household"}, "members": ["Chan", "Chan配偶"]},
-    {"id": "ling", "name": {"zh": "Ling家", "en": "Ling Household"}, "members": ["Ling", "Ling配偶"]},
-    {"id": "anita", "name": {"zh": "Anita家", "en": "Anita Household"}, "members": ["Anita", "Benson"]},
-    {"id": "zhongxin", "name": {"zh": "仲欣", "en": "Zhong Xin"}, "members": ["仲欣"]},
+    {"id": "mav", "name": {"zh": "Mav家", "en": "Mav Household"}, "members": ["Mav", "严正"], "prepaid": 1000},
+    {"id": "chan", "name": {"zh": "Chan家", "en": "Chan Household"}, "members": ["Chan", "Chan配偶"], "prepaid": 1000},
+    {"id": "ling", "name": {"zh": "Ling家", "en": "Ling Household"}, "members": ["Ling", "Ling配偶"], "prepaid": 1000},
+    {"id": "anita", "name": {"zh": "Anita家", "en": "Anita Household"}, "members": ["Anita", "Benson"], "prepaid": 1000},
+    {"id": "zhongxin", "name": {"zh": "仲欣", "en": "Zhong Xin"}, "members": ["仲欣"], "prepaid": 0},
 ]
 
 GROUP_ALIASES = {

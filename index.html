@@ -754,13 +754,15 @@
                     entries: '已记录笔数',
                     topCategory: '最高花费分类',
                     topPayer: '当前垫付最多',
+                    prepaidTotal: '预付款总额',
                     splitHintHousehold: '默认按每家平摊，适合夫妻同行一起算账。',
                     splitHintPerson: '按每人拆分，适合处理“7人消费”这种细账。',
                     shouldPay: '应分摊',
                     paid: '已垫付',
+                    prepaid: '已预付',
                     net: '净额',
-                    shouldReceive: '应收',
-                    shouldTransfer: '应补',
+                    shouldReceive: '应退',
+                    shouldTransfer: '还需补',
                     noData: '暂时还没有费用记录。',
                     household: '每家',
                     person: '每人',
@@ -774,13 +776,15 @@
                     entries: 'Entries',
                     topCategory: 'Top Category',
                     topPayer: 'Top Payer',
+                    prepaidTotal: 'Total Prepaid',
                     splitHintHousehold: 'Default split is by household — best for couple/group travel.',
                     splitHintPerson: 'Per-person split helps with edge cases like a 7-person purchase.',
                     shouldPay: 'Should Pay',
-                    paid: 'Paid',
+                    paid: 'Paid Directly',
+                    prepaid: 'Prepaid',
                     net: 'Net',
-                    shouldReceive: 'To Receive',
-                    shouldTransfer: 'To Transfer',
+                    shouldReceive: 'Refund Due',
+                    shouldTransfer: 'Still Owes',
                     noData: 'No expenses recorded yet.',
                     household: 'Household',
                     person: 'Person',
@@ -794,12 +798,13 @@
             const labels = getLabels();
             if (view === 'household') {
                 data.households.forEach(h => {
-                    buckets[h.id] = { name: h.name[currentLang], shouldPay: 0, paid: 0 };
+                    buckets[h.id] = { name: h.name[currentLang], shouldPay: 0, paid: 0, prepaid: Number(h.prepaid || 0) };
                 });
             } else {
                 data.households.forEach(h => {
+                    const prepaidShare = h.members.length ? Number(h.prepaid || 0) / h.members.length : 0;
                     h.members.forEach(member => {
-                        buckets[member] = { name: member, shouldPay: 0, paid: 0 };
+                        buckets[member] = { name: member, shouldPay: 0, paid: 0, prepaid: prepaidShare };
                     });
                 });
             }
@@ -829,8 +834,8 @@
             });
 
             return Object.values(buckets)
-                .map(item => ({ ...item, net: item.paid - item.shouldPay }))
-                .filter(item => item.paid || item.shouldPay)
+                .map(item => ({ ...item, net: item.paid + item.prepaid - item.shouldPay }))
+                .filter(item => item.paid || item.shouldPay || item.prepaid)
                 .sort((a, b) => b.net - a.net || a.name.localeCompare(b.name));
         }
 
@@ -841,6 +846,7 @@
             if (!statsEl) return;
             const entries = data.entries || [];
             const total = entries.reduce((sum, item) => sum + item.amount, 0);
+            const prepaidTotal = (data.households || []).reduce((sum, h) => sum + Number(h.prepaid || 0), 0);
             const categoryTotals = {};
             const payerTotals = {};
             entries.forEach(entry => {
@@ -858,9 +864,9 @@
 
             statsEl.innerHTML = [
                 { label: labels.totalSpend, value: formatCurrency(total), subvalue: `${entries.length} ${labels.entries}` },
+                { label: labels.prepaidTotal, value: formatCurrency(prepaidTotal), subvalue: settlementView === 'household' ? labels.splitHintHousehold : labels.splitHintPerson },
                 { label: labels.topCategory, value: topCategory ? (entries.find(e => e.category === topCategory[0])?.categoryLabel?.[currentLang] || topCategory[0]) : '-', subvalue: topCategory ? formatCurrency(topCategory[1]) : '-' },
                 { label: labels.topPayer, value: topPayer ? topPayer[0] : '-', subvalue: topPayer ? formatCurrency(topPayer[1]) : '-' },
-                { label: settlementView === 'household' ? labels.household : labels.person, value: settlementView === 'household' ? String((data.households || []).filter(h => h.id !== 'zhongxin').length) : String((data.households || []).filter(h => h.id !== 'zhongxin').reduce((sum, h) => sum + h.members.length, 0)), subvalue: settlementView === 'household' ? labels.splitHintHousehold : labels.splitHintPerson },
             ].map(card => `<div class="expense-stat"><div class="label">${card.label}</div><div class="value">${card.value}</div><div class="subvalue">${card.subvalue}</div></div>`).join('');
 
             document.getElementById('expenseCategories').innerHTML = Object.entries(categoryTotals)
@@ -874,7 +880,7 @@
                 .map(item => {
                     const netClass = item.net >= 0 ? 'positive' : 'negative';
                     const netLabel = item.net >= 0 ? labels.shouldReceive : labels.shouldTransfer;
-                    return `<div class="settlement-card"><h4>${item.name}</h4><div class="settlement-row"><span>${labels.shouldPay}</span><strong>${formatCurrency(item.shouldPay)}</strong></div><div class="settlement-row"><span>${labels.paid}</span><strong>${formatCurrency(item.paid)}</strong></div><div class="settlement-row settlement-net ${netClass}"><span>${netLabel}</span><strong>${formatCurrency(Math.abs(item.net))}</strong></div></div>`;
+                    return `<div class="settlement-card"><h4>${item.name}</h4><div class="settlement-row"><span>${labels.shouldPay}</span><strong>${formatCurrency(item.shouldPay)}</strong></div><div class="settlement-row"><span>${labels.prepaid}</span><strong>${formatCurrency(item.prepaid || 0)}</strong></div><div class="settlement-row"><span>${labels.paid}</span><strong>${formatCurrency(item.paid)}</strong></div><div class="settlement-row settlement-net ${netClass}"><span>${netLabel}</span><strong>${formatCurrency(Math.abs(item.net))}</strong></div></div>`;
                 }).join('') || `<div class="expense-empty">${labels.noData}</div>`;
 
             document.getElementById('expenseLedgerBody').innerHTML = entries.map(entry => {

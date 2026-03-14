@@ -1,7 +1,7 @@
 // Auto-generated from expenses/expense_log.md by scripts_generate_expense_data.py
 window.EXPENSE_DATA = {
   "source": "expenses/expense_log.md",
-  "generatedAt": "2026-03-14T08:32:06",
+  "generatedAt": "2026-03-14T08:47:08",
   "households": [
     {
       "id": "mav",
@@ -12,7 +12,8 @@ window.EXPENSE_DATA = {
       "members": [
         "Mav",
         "严正"
-      ]
+      ],
+      "prepaid": 1000
     },
     {
       "id": "chan",
@@ -23,7 +24,8 @@ window.EXPENSE_DATA = {
       "members": [
         "Chan",
         "Chan配偶"
-      ]
+      ],
+      "prepaid": 1000
     },
     {
       "id": "ling",
@@ -34,7 +36,8 @@ window.EXPENSE_DATA = {
       "members": [
         "Ling",
         "Ling配偶"
-      ]
+      ],
+      "prepaid": 1000
     },
     {
       "id": "anita",
@@ -45,7 +48,8 @@ window.EXPENSE_DATA = {
       "members": [
         "Anita",
         "Benson"
-      ]
+      ],
+      "prepaid": 1000
     },
     {
       "id": "zhongxin",
@@ -55,7 +59,8 @@ window.EXPENSE_DATA = {
       },
       "members": [
         "仲欣"
-      ]
+      ],
+      "prepaid": 0
     }
   ],
   "entries": [
