@@ -1,7 +1,7 @@
 // Auto-generated from expenses/expense_log.md by scripts_generate_expense_data.py
 window.EXPENSE_DATA = {
   "source": "expenses/expense_log.md",
-  "generatedAt": "2026-03-14T13:55:52",
+  "generatedAt": "2026-03-14T14:06:31",
   "households": [
     {
       "id": "mav",
@@ -199,7 +199,7 @@ window.EXPENSE_DATA = {
         "zh": "餐饮",
         "en": "Meals"
       },
-      "title": "老灶房（解放碑店）",
+      "title": "田婆婆的菜（来福士店）",
       "subtitle": "午餐",
       "payer": "Mav",
       "participantsRaw": "8人",
@@ -218,7 +218,7 @@ window.EXPENSE_DATA = {
       "raw": {
         "日期": "2026-03-14",
         "用餐类型": "午餐",
-        "地点/餐厅": "老灶房（解放碑店）",
+        "地点/餐厅": "田婆婆的菜（来福士店）",
         "参与者": "8人",
         "付费人": "Mav",
         "费用": "¥472.01"
