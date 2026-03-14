@@ -1,7 +1,7 @@
 // Auto-generated from expenses/expense_log.md by scripts_generate_expense_data.py
 window.EXPENSE_DATA = {
   "source": "expenses/expense_log.md",
-  "generatedAt": "2026-03-14T20:29:21",
+  "generatedAt": "2026-03-14T20:32:11",
   "households": [
     {
       "id": "mav",
@@ -254,6 +254,38 @@ window.EXPENSE_DATA = {
         "参与者": "8人",
         "付费人": "Mav",
         "费用": "¥1,228.00"
+      }
+    },
+    {
+      "date": "2026-03-14",
+      "category": "meal",
+      "categoryLabel": {
+        "zh": "餐饮",
+        "en": "Meals"
+      },
+      "title": "洪崖洞→弹子石（渡船费）",
+      "subtitle": "渡船",
+      "payer": "Mav",
+      "participantsRaw": "8人",
+      "households": [
+        "mav",
+        "chan",
+        "ling",
+        "anita"
+      ],
+      "splitMode": "household",
+      "amount": 120.0,
+      "notes": {
+        "zh": "按 4 家共 8 人分摊：Mav+严正、Chan夫妇、Ling夫妇、Anita+Benson",
+        "en": "Split across 4 households / 8 people: Mav+Yan Zheng, Chan couple, Ling couple, Anita+Benson"
+      },
+      "raw": {
+        "日期": "2026-03-14",
+        "用餐类型": "渡船",
+        "地点/餐厅": "洪崖洞→弹子石（渡船费）",
+        "参与者": "8人",
+        "付费人": "Mav",
+        "费用": "¥120.00"
       }
     },
     {
